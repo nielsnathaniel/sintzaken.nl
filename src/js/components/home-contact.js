@@ -39,7 +39,7 @@ export function setupHomeContact(element) {
           <div style="padding-top: 2.5rem; border-top: 1px solid rgba(0,0,0,0.08);">
             <h3 style="font-size: 1.4rem; color: var(--color-navy); margin-bottom: 1rem; font-weight: 600;">Contactgegevens</h3>
             <p style="color: var(--color-text-light); font-size: 1.1rem; line-height: 1.8;">
-              <strong>Email:</strong> <a href="mailto:info@sintzaken.nl" style="color: var(--color-accent); text-decoration: none; font-weight: 500;">info@sintzaken.nl</a>
+              <strong>Email:</strong> <a href="mailto:sint@sintzaken.nl" style="color: var(--color-accent); text-decoration: none; font-weight: 500;">sint@sintzaken.nl</a>
             </p>
           </div>
           

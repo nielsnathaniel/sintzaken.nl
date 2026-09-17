@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $recipient = "info@sintzaken.nl";
+    $recipient = "sint@sintzaken.nl";
     $subject = "Nieuw contactformulier bericht van $name (SintZaken.nl)";
     
     $email_content = "Er is een nieuw bericht binnengekomen via het contactformulier op SintZaken.nl.\n\n";
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_content .= "--------------------------------------------------\n";
 
     // Set headers
-    $email_headers = "From: SintZaken Website <info@sintzaken.nl>\r\n";
+    $email_headers = "From: SintZaken Website <sint@sintzaken.nl>\r\n";
     $email_headers .= "Reply-To: $email\r\n";
     $email_headers .= "X-Mailer: PHP/" . phpversion();
 
