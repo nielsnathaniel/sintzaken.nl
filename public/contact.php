@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_content .= "--------------------------------------------------\n";
 
     // Set headers
-    $email_headers = "From: SintZaken Website <noreply@sintzaken.nl>\r\n";
+    $email_headers = "From: SintZaken Website <info@sintzaken.nl>\r\n";
     $email_headers .= "Reply-To: $email\r\n";
     $email_headers .= "X-Mailer: PHP/" . phpversion();
 
