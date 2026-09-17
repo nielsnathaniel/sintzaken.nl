@@ -28,4 +28,4 @@ jobs:
     - name: Sync files via lftp
       run: |
         sudo apt-get update && sudo apt-get install -y lftp
-        lftp -c "set ftp:ssl-allow yes; set ssl:verify-certificate no; set ftp:passive-mode true; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; mirror -R ./dist/ ./domains/sintzaken.nl/public_html/ --parallel=10 --exclude-glob .git*"
+        lftp -c "set ftp:ssl-allow yes; set ssl:verify-certificate no; set ftp:passive-mode true; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; mirror -R ./dist/ ./domains/sintzaken.nl/public_html/ --parallel=3 --exclude-glob .git*"
