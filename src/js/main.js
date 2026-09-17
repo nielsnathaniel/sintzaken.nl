@@ -4,7 +4,7 @@ import { setupHomeValue } from './components/home-value.js';
 import { setupHomeServices } from './components/home-services.js?v=3';
 import { setupSocialProof } from './components/home-social-proof.js';
 import { setupHomeContact } from './components/home-contact.js';
-import { setupWinkelcentra } from './components/winkelcentra.js';
+import { setupMeetEnGreets } from './components/meet-en-greets.js';
 import { setupBedrijven } from './components/bedrijven.js?v=3';
 import { setupParticulieren } from './components/particulieren.js';
 import { setupOverOns } from './components/over-ons.js';
@@ -22,7 +22,7 @@ const homeServicesSection = document.querySelector('#home-services-section');
 const socialProofSection = document.querySelector('#social-proof-section');
 const homeContactSection = document.querySelector('#home-contact-section');
 
-const winkelcentraSection = document.querySelector('#winkelcentra-section');
+const winkelcentraSection = document.querySelector('#meet-en-greets-section');
 const bedrijvenSection = document.querySelector('#bedrijven-section');
 const particulierenSection = document.querySelector('#particulieren-section');
 const overOnsSection = document.querySelector('#over-ons-section');
@@ -36,7 +36,7 @@ if (homeServicesSection) setupHomeServices(homeServicesSection);
 if (socialProofSection) setupSocialProof(socialProofSection);
 if (homeContactSection) setupHomeContact(homeContactSection);
 
-if (winkelcentraSection) setupWinkelcentra(winkelcentraSection);
+if (winkelcentraSection) setupMeetEnGreets(winkelcentraSection);
 if (bedrijvenSection) setupBedrijven(bedrijvenSection);
 if (particulierenSection) setupParticulieren(particulierenSection);
 if (overOnsSection) setupOverOns(overOnsSection);

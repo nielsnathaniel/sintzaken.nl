@@ -1,4 +1,4 @@
-export function setupWinkelcentra(element) {
+export function setupMeetEnGreets(element) {
   element.innerHTML = `
     <section class="section section-dark" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; margin-bottom: 2rem;">
       <!-- Background Image -->
@@ -9,10 +9,10 @@ export function setupWinkelcentra(element) {
       <!-- Text Content -->
       <div class="container" style="position: relative; z-index: 2; text-align: center; padding-top: 3rem; padding-bottom: 3rem;">
         <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-family: var(--font-heading); color: var(--color-surface); text-shadow: 0 4px 15px rgba(0,0,0,0.8); margin-bottom: 1rem; font-weight: 700;">
-          Magische Resultaten voor uw Winkelcentrum
+          Magische Resultaten voor uw Evenement of Locatie
         </h1>
         <p style="font-size: 1.2rem; color: #f0f0f0; max-width: 800px; margin: 0 auto; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
-          Verleng de verblijfstijd en creëer drommen blije gezichten met een betoverende beleving waar zowel kinderen, ouders als winkeliers volop van genieten.
+          Verleng de verblijfstijd en creëer drommen blije gezichten met een betoverende beleving waar kinderen, ouders en bezoekers volop van genieten.
         </p>
       </div>
     </section>
@@ -46,7 +46,7 @@ export function setupWinkelcentra(element) {
           </div>
         </div>
 
-        <!-- Activiteiten Winkelcentra -->
+        <!-- Activiteiten op Locatie -->
         <h3 class="text-red text-center" style="font-size: 2rem; margin-bottom: 2rem;">Feestelijke Pop-Up Activiteiten</h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md);">
           

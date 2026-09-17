@@ -20,14 +20,14 @@ export function setupHomeServices(element) {
             </div>
           </div>
           
-          <!-- Card 2: Winkelcentra -->
+          <!-- Card 2: Meet & Greets -->
           <div class="service-card">
             <div class="service-img" style="background-image: url('/images/winkelcentrum_sint.jpg');">
             </div>
             <div class="service-content">
-              <h3>Winkelcentra</h3>
-              <p>Tover uw centrum om tot een magische ontmoetingsplek met doordachte meet & greets die de voetstroom zichtbaar verhogen.</p>
-              <a href="/winkelcentra.html" class="service-link">Lees meer <span>&rarr;</span></a>
+              <h3>Meet & Greets</h3>
+              <p>Tover uw locatie om tot een magische ontmoetingsplek met doordachte meet & greets die zorgen voor een onvergetelijke beleving.</p>
+              <a href="/meet-en-greets.html" class="service-link">Lees meer <span>&rarr;</span></a>
             </div>
           </div>
           
