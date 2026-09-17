@@ -25,12 +25,7 @@ jobs:
     - name: Build project
       run: npm run build
       
-    - name: Sync files via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/
-        server-dir: domains/sintzaken.nl/public_html/
-        protocol: ftps
+    - name: Sync files via lftp
+      run: |
+        sudo apt-get update && sudo apt-get install -y lftp
+        lftp -c "set ftp:ssl-allow yes; set ssl:verify-certificate no; set ftp:passive-mode true; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; mirror -R ./dist/ ./domains/sintzaken.nl/public_html/ --parallel=10 --exclude-glob .git*"
