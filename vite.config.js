@@ -7,7 +7,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
-                winkelcentra: resolve(__dirname, 'winkelcentra.html'),
+                meetengreets: resolve(__dirname, 'meet-en-greets.html'),
                 bedrijven: resolve(__dirname, 'bedrijven.html'),
                 particulieren: resolve(__dirname, 'particulieren.html'),
                 overons: resolve(__dirname, 'over-ons.html'),
