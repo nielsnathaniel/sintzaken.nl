@@ -28,11 +28,14 @@ export function setupShows(element) {
           </p>
           
           <!-- Proefpiet Show -->
-          <div style="background: var(--color-surface); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 2.5rem;">
-            <h4 class="text-navy" style="font-size: 1.4rem; margin-bottom: 0.5rem;">De Proefpiet Show</h4>
-            <p style="color: var(--color-text-light); font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">
-              Een muzikale voorstelling vol bekende liedjes en trucjes. Een leuke opwarmer voordat Sinterklaas binnenkomt.
-            </p>
+          <div style="background: var(--color-surface); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 2.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+            <div>
+              <h4 class="text-navy" style="font-size: 1.4rem; margin-bottom: 0.5rem;">De Proefpiet Show</h4>
+              <p style="color: var(--color-text-light); font-size: 1.05rem; line-height: 1.6; margin-bottom: 0; max-width: 600px;">
+                Een muzikale voorstelling vol bekende liedjes en trucjes. Een leuke opwarmer voordat Sinterklaas binnenkomt.
+              </p>
+            </div>
+            <a href="/proefpiet.html" class="btn btn-secondary btn-sm" style="white-space: nowrap;">Lees meer & bekijk foto's</a>
           </div>
 
           <h4 class="text-navy" style="font-size: 1.3rem; margin-bottom: 1.5rem;">Onze Entertainment Pieten:</h4>

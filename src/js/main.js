@@ -11,6 +11,7 @@ import { setupOverOns } from './components/over-ons.js';
 import { setupShows } from './components/shows.js';
 import { setupExtras } from './components/extras.js';
 import { setupMogelijkheden } from './components/mogelijkheden.js';
+import { setupProefpiet } from './components/proefpiet.js';
 import { initNavigation } from './components/navigation.js';
 
 // Initialize UI components
@@ -30,6 +31,7 @@ const overOnsSection = document.querySelector('#over-ons-section');
 const showsSection = document.querySelector('#shows-section');
 const extrasSection = document.querySelector('#extras-section');
 const mogelijkhedenSection = document.querySelector('#mogelijkheden-section');
+const proefpietSection = document.querySelector('#proefpiet-section');
 
 // Initialize applicable sections
 if (heroSection) setupHero(heroSection);
@@ -45,3 +47,4 @@ if (overOnsSection) setupOverOns(overOnsSection);
 if (showsSection) setupShows(showsSection);
 if (extrasSection) setupExtras(extrasSection);
 if (mogelijkhedenSection) setupMogelijkheden(mogelijkhedenSection);
+if (proefpietSection) setupProefpiet(proefpietSection);

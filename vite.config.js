@@ -13,7 +13,10 @@ export default defineConfig({
                 overons: resolve(__dirname, 'over-ons.html'),
                 shows: resolve(__dirname, 'shows.html'),
                 extras: resolve(__dirname, 'extras.html'),
-                mogelijkheden: resolve(__dirname, 'mogelijkheden.html')
+                mogelijkheden: resolve(__dirname, 'mogelijkheden.html'),
+                voorwaarden: resolve(__dirname, 'voorwaarden.html'),
+                privacy: resolve(__dirname, 'privacy.html'),
+                proefpiet: resolve(__dirname, 'proefpiet.html')
             }
         }
     }
