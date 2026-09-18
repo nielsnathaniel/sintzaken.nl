@@ -11,7 +11,7 @@ export function setupHomeServices(element) {
           
           <!-- Card 1: Shows -->
           <div class="service-card">
-            <div class="service-img" style="background-image: url('/images/shows_nieuw.jpg');">
+            <div class="service-img" style="background-image: url('/images/sint_show_stage.jpg');">
             </div>
             <div class="service-content">
               <h3>Sinterklaas Shows</h3>

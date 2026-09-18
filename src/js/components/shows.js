@@ -2,7 +2,7 @@ export function setupShows(element) {
   element.innerHTML = `
     <section class="section section-dark" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; margin-bottom: 2rem;">
       <!-- Background Image -->
-      <img src="/images/shows_nieuw.jpg" alt="De Ultieme Sinterklaas Show" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0;" onerror="this.src='/images/shows_nieuw.png'">
+      <img src="/images/sint_show_stage.jpg" alt="De Ultieme Sinterklaas Show" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0;" onerror="this.src='/images/shows_nieuw.png'">
       <!-- Overlay Gradient -->
       <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(10,25,47,0.9) 0%, rgba(10,25,47,0.4) 100%); z-index: 1;"></div>
       

@@ -16,7 +16,7 @@ export function setupMogelijkheden(element) {
           <!-- Shows -->
           <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
             <div style="flex: 1; min-width: 300px;">
-              <img src="/images/shows_nieuw.jpg" alt="Sinterklaas Shows" style="width: 100%; border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
+              <img src="/images/sint_show_stage.jpg" alt="Sinterklaas Shows" style="width: 100%; border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
             </div>
             <div style="flex: 1; min-width: 300px;">
               <h3 class="text-red" style="font-size: 2.2rem; margin-bottom: 1rem;">1. Sinterklaas Shows</h3>
