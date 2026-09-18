@@ -30,10 +30,9 @@ export function setupShows(element) {
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
             <div style="background: var(--color-surface); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
               <h4 class="text-navy" style="font-size: 1.4rem; margin-bottom: 0.5rem;">De Proefpiet Show</h4>
-              <p style="color: var(--color-text-light); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
+              <p style="color: var(--color-text-light); font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">
                 Een interactief meezing-spektakel vol humor, goocheltrucs en herkenbare hits. De perfecte, energieke opwarmer voor het grote bezoek!
               </p>
-              <a href="https://www.proefpiet.nl" target="_blank" style="color: var(--color-red); font-weight: 600; text-decoration: none;">Bekijk op www.proefpiet.nl &rarr;</a>
             </div>
 
             <div style="background: rgba(0,0,0,0.03); padding: 2rem; border-radius: 8px;">
