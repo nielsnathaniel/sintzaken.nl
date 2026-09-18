@@ -12,6 +12,11 @@ import { setupShows } from './components/shows.js';
 import { setupExtras } from './components/extras.js';
 import { setupMogelijkheden } from './components/mogelijkheden.js';
 import { setupProefpiet } from './components/proefpiet.js';
+import { setupSaxophonePiet } from './components/saxophone-piet.js';
+import { setupDjPiet } from './components/dj-piet.js';
+import { setupLiedjesPiet } from './components/liedjes-piet.js';
+import { setupSchminkPiet } from './components/schmink-piet.js';
+import { setupKnutselPiet } from './components/knutsel-piet.js';
 import { initNavigation } from './components/navigation.js';
 
 // Initialize UI components
@@ -32,6 +37,11 @@ const showsSection = document.querySelector('#shows-section');
 const extrasSection = document.querySelector('#extras-section');
 const mogelijkhedenSection = document.querySelector('#mogelijkheden-section');
 const proefpietSection = document.querySelector('#proefpiet-section');
+const saxophonePietSection = document.querySelector('#saxophone-piet-section');
+const djPietSection = document.querySelector('#dj-piet-section');
+const liedjesPietSection = document.querySelector('#liedjes-piet-section');
+const schminkPietSection = document.querySelector('#schmink-piet-section');
+const knutselPietSection = document.querySelector('#knutsel-piet-section');
 
 // Initialize applicable sections
 if (heroSection) setupHero(heroSection);
@@ -48,3 +58,8 @@ if (showsSection) setupShows(showsSection);
 if (extrasSection) setupExtras(extrasSection);
 if (mogelijkhedenSection) setupMogelijkheden(mogelijkhedenSection);
 if (proefpietSection) setupProefpiet(proefpietSection);
+if (saxophonePietSection) setupSaxophonePiet(saxophonePietSection);
+if (djPietSection) setupDjPiet(djPietSection);
+if (liedjesPietSection) setupLiedjesPiet(liedjesPietSection);
+if (schminkPietSection) setupSchminkPiet(schminkPietSection);
+if (knutselPietSection) setupKnutselPiet(knutselPietSection);

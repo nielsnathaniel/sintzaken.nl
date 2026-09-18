@@ -42,35 +42,45 @@ export function setupShows(element) {
           
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem;">
             
-            <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
-              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎷</div>
-              <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Saxophone Piet</strong>
-              <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Gezellige live muziek</p>
-            </div>
+            <a href="/saxophone-piet.html" style="text-decoration: none; display: block;">
+              <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05); height: 100%; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎷</div>
+                <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Saxophone Piet</strong>
+                <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Gezellige live muziek</p>
+              </div>
+            </a>
 
-            <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
-              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎧</div>
-              <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">DJ Piet</strong>
-              <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Draait de hits</p>
-            </div>
+            <a href="/dj-piet.html" style="text-decoration: none; display: block;">
+              <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05); height: 100%; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎧</div>
+                <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">DJ Piet</strong>
+                <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Draait de hits</p>
+              </div>
+            </a>
 
-            <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
-              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎤</div>
-              <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Liedjes Piet</strong>
-              <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Samen zingen</p>
-            </div>
+            <a href="/liedjes-piet.html" style="text-decoration: none; display: block;">
+              <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05); height: 100%; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎤</div>
+                <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Liedjes Piet</strong>
+                <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Samen zingen</p>
+              </div>
+            </a>
 
-            <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
-              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
-              <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Schmink Pieten</strong>
-              <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Gezichtsschilderingen</p>
-            </div>
+            <a href="/schmink-piet.html" style="text-decoration: none; display: block;">
+              <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05); height: 100%; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
+                <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Schmink Pieten</strong>
+                <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Gezichtsschilderingen</p>
+              </div>
+            </a>
 
-            <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
-              <div style="font-size: 2rem; margin-bottom: 0.5rem;">✂️</div>
-              <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Knutsel Piet</strong>
-              <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Creatief aan de slag</p>
-            </div>
+            <a href="/knutsel-piet.html" style="text-decoration: none; display: block;">
+              <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05); height: 100%; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">✂️</div>
+                <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Knutsel Piet</strong>
+                <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Creatief aan de slag</p>
+              </div>
+            </a>
 
           </div>
         </div>

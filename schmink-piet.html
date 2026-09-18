@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Schmink Pieten - Sint Zaken.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/style.css">
+  <title>Schmink Pieten - Sint Zaken</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="nav-mobile-header">
+        <a href="/index.html" class="logo">Sint Zaken</a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+      </div>
+      <ul class="nav-links">
+        <div class="nav-menu">
+          <li><a href="/mogelijkheden.html">Mogelijkheden</a></li>
+          <li><a href="/shows.html">Shows</a></li>
+          <li><a href="/meet-en-greets.html">Meet & Greets</a></li>
+          <li><a href="/bedrijven.html">Bedrijven</a></li>
+          <li><a href="/over-ons.html">Over Ons</a></li>
+        </div>
+        <li class="nav-contact"><a href="/index.html#home-contact-section" class="btn btn-primary btn-sm btn-contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="app">
+    <main>
+      <div id="schmink-piet-section"></div>
+      <div id="social-proof-section"></div>
+      <div id="home-contact-section"></div>
+    </main>
+  </div>
+  <script type="module" src="/src/js/main.js?v=3"></script>
+  <footer class="main-footer" style="background-color: #1E293B; color: var(--color-background); padding: 3rem 0; font-family: var(--font-body);">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center;">
+      <a href="/index.html" class="logo" style="color: var(--color-accent); font-size: 1.8rem; text-decoration: none; font-family: var(--font-heading);">Sint Zaken</a>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+        <a href="/voorwaarden.html" style="color: var(--color-background); text-decoration: none; font-weight: 500;">Algemene voorwaarden</a>
+        <a href="/privacy.html" style="color: var(--color-background); text-decoration: none; font-weight: 500;">Privacy verklaring</a>
+        <a href="/index.html#contact" style="color: var(--color-background); text-decoration: none; font-weight: 500;">Contact</a>
+      </div>
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); width: 100%; font-size: 0.9rem; opacity: 0.7;">
+        &copy; 2024 Sint Zaken. Alle rechten voorbehouden. | v1.1.0
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
