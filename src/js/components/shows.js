@@ -23,9 +23,30 @@ export function setupShows(element) {
         <!-- Voorshows -->
         <div style="margin-bottom: 4rem;">
           <h2 class="text-gold" style="font-size: 2.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem; display: inline-block;">1. Het Voorprogramma</h2>
-          <p style="font-size: 1.2rem; color: var(--color-text-light); line-height: 1.8; margin-top: 1rem;">
-            Breng de zaal alvast helemaal in de stemming voordat de Sint arriveert! Binnenkort presenteren wij hier verschillende interactieve en muzikale voorshows waar u uit kunt kiezen. <em>(Meer informatie volgt snel).</em>
+          <p style="font-size: 1.2rem; color: var(--color-text-light); line-height: 1.8; margin-top: 1rem; margin-bottom: 2rem;">
+            Breng de zaal alvast helemaal in de stemming voordat de Sint arriveert! Kies voor de waanzinnige Proefpiet show, of bouw zelf een feestelijk voorprogramma met onze gespecialiseerde Entertainment Pieten.
           </p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <div style="background: var(--color-surface); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+              <h4 class="text-navy" style="font-size: 1.4rem; margin-bottom: 0.5rem;">De Proefpiet Show</h4>
+              <p style="color: var(--color-text-light); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
+                Een interactief meezing-spektakel vol humor, goocheltrucs en herkenbare hits. De perfecte, energieke opwarmer voor het grote bezoek!
+              </p>
+              <a href="https://www.proefpiet.nl" target="_blank" style="color: var(--color-red); font-weight: 600; text-decoration: none;">Bekijk op www.proefpiet.nl &rarr;</a>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.03); padding: 2rem; border-radius: 8px;">
+              <h4 class="text-navy" style="font-size: 1.3rem; margin-bottom: 1rem;">Onze Entertainment Pieten:</h4>
+              <ul style="list-style: none; padding: 0; margin: 0; color: var(--color-text-light); font-size: 1.1rem; line-height: 1.8;">
+                <li><span style="color: var(--color-accent); margin-right: 8px;">★</span> <strong>Saxophone Piet:</strong> Voor heerlijke live muziek.</li>
+                <li><span style="color: var(--color-accent); margin-right: 8px;">★</span> <strong>DJ Piet:</strong> Draait de allerbeste Sinterklaashits.</li>
+                <li><span style="color: var(--color-accent); margin-right: 8px;">★</span> <strong>Liedjes Piet:</strong> Zingt samen met de kinderen.</li>
+                <li><span style="color: var(--color-accent); margin-right: 8px;">★</span> <strong>Schmink Pieten:</strong> Voor de prachtigste creaties.</li>
+                <li><span style="color: var(--color-accent); margin-right: 8px;">★</span> <strong>Knutsel Piet:</strong> Lekker creatief aan de slag.</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <!-- Hoofdshow -->
