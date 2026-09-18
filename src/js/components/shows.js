@@ -9,39 +9,72 @@ export function setupShows(element) {
       <!-- Text Content -->
       <div class="container" style="position: relative; z-index: 2; text-align: center; padding-top: 3rem; padding-bottom: 3rem;">
         <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-family: var(--font-heading); color: var(--color-gold); text-shadow: 0 4px 15px rgba(0,0,0,0.8); margin-bottom: 1.5rem; font-weight: 700;">
-          De Ultieme Sinterklaas Show
+          Shows & Entertainment
         </h1>
         <p style="font-size: 1.3rem; color: #f0f0f0; max-width: 900px; margin: 0 auto; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
-          Voel de spanning stijgen! Zodra de mysterieuze Sinterklaaskoffer op het podium staat, begint de absolute magie.
+          Bouw uw eigen ideale Sinterklaasfeest op met ons flexibele aanbod: van een spetterende voorshow tot adembenemende decors.
         </p>
       </div>
     </section>
 
     <section id="shows" class="section section-light" style="padding-top: 2rem;">
       <div class="container">
-        <div style="max-width: 900px; margin: 0 auto;">
-          <div style="display: grid; grid-template-columns: 1fr; gap: 2.5rem;">
+        
+        <!-- Voorshows -->
+        <div style="margin-bottom: 4rem;">
+          <h2 class="text-gold" style="font-size: 2.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem; display: inline-block;">1. Het Voorprogramma</h2>
+          <p style="font-size: 1.2rem; color: var(--color-text-light); line-height: 1.8; margin-top: 1rem;">
+            Breng de zaal alvast helemaal in de stemming voordat de Sint arriveert! Binnenkort presenteren wij hier verschillende interactieve en muzikale voorshows waar u uit kunt kiezen. <em>(Meer informatie volgt snel).</em>
+          </p>
+        </div>
+
+        <!-- Hoofdshow -->
+        <div style="margin-bottom: 4rem; background: var(--color-surface); padding: 3rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-left: 5px solid var(--color-gold);">
+          <h2 class="text-navy" style="font-size: 2.5rem; margin-bottom: 1.5rem;">2. De Hoofdshow: De Magische Koffer</h2>
+          <p style="font-size: 1.15rem; color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.8;">
+            Voel de spanning stijgen! Zodra de mysterieuze Sinterklaaskoffer op het podium staat, begint de absolute magie. De knipperende volumemeter op de koffer móét naar de 100% voordat de Sint verschijnt. Wat volgt is één gigantische explosie van energie. Stilzitten is er simpelweg niet bij.
+          </p>
+          <p style="font-size: 1.15rem; color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.8;">
+            De kinderen springen massaal op, zingen uit volle borst mee en dansen de sterren van de hemel om die meter handmatig omhoog te jagen. De spanning schiet naar een ongekend kookpunt. Wanneer de 100% ein-de-lijk wordt geraakt en Sinterklaas zijn overrompelende entree maakt, gaat het dak er volledig af!
+          </p>
+          <p style="font-size: 1.1rem; color: var(--color-red); font-weight: 600; margin-bottom: 0;">
+            ✓ Verkrijgbaar in dynamische sets van 30, 45 of 60 minuten.
+          </p>
+        </div>
+
+        <!-- Losse Opties -->
+        <div style="margin-bottom: 4rem;">
+          <h2 class="text-gold" style="font-size: 2.2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem; display: inline-block;">3. Decor, Techniek & Opties</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1rem;">
             
-            <div style="text-align: center;">
-              <p style="font-size: 1.2rem; color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.8;">
-                De knipperende volumemeter op de koffer móét naar de 100% voordat de Sint verschijnt. Wat volgt is één gigantische explosie van energie. Stilzitten is er simpelweg niet bij. De kinderen springen massaal op, zingen uit volle borst mee en dansen de sterren van de hemel om die meter handmatig omhoog te jagen.
+            <div style="background: rgba(0,0,0,0.03); padding: 2rem; border-radius: 8px;">
+              <h4 class="text-navy" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Professioneel Decor</h4>
+              <p style="color: var(--color-text-light); font-size: 1rem; line-height: 1.6;">
+                Tover de kale ruimte om tot een warme, magische Sinterklaaskamer met onze prachtige troon, openhaard, pakjes en sfeervolle achtergronden.
               </p>
-              <p style="color: var(--color-text-light); font-size: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem;">
-                De spanning schiet naar een ongekend kookpunt. Wanneer de 100% ein-de-lijk wordt geraakt en Sinterklaas zijn overrompelende entree maakt, gaat het dak er volledig af!
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.03); padding: 2rem; border-radius: 8px;">
+              <h4 class="text-navy" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Licht & Geluid</h4>
+              <p style="color: var(--color-text-light); font-size: 1rem; line-height: 1.6;">
+                Geen omkijken naar de techniek. Wij leveren kraakhelder geluid (inclusief microfoons) en sfeervolle verlichting die perfect is afgestemd op de show.
               </p>
+            </div>
 
-              <div style="background: var(--color-surface); padding: 2.5rem; border-radius: 8px; border: 1px solid rgba(138, 21, 56, 0.1); border-top: 4px solid var(--color-accent); box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left; margin-bottom: 3rem;">
-                <h4 class="text-red" style="font-size: 1.6rem; margin-bottom: 1rem;">Eindeloos Flexibel</h4>
-                <p style="color: var(--color-text-light); font-size: 1.1rem; line-height: 1.7; margin: 0;">
-                  Onze interactieve powershows zijn overal in te zetten, nemen weinig ruimte in beslag en zijn razendsnel op te bouwen. Verkrijgbaar in dynamische sets van <strong>30, 45 of 60 minuten</strong>.
-                </p>
-              </div>
-
-              <a href="/index.html#contact" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">Boek dit spektakel</a>
+            <div style="background: rgba(0,0,0,0.03); padding: 2rem; border-radius: 8px;">
+              <h4 class="text-navy" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Fotografie & Extra's</h4>
+              <p style="color: var(--color-text-light); font-size: 1rem; line-height: 1.6;">
+                Boek een professionele Sinterklaasfotograaf, een knutselhoek of een ballonnen-piet om het feest compleet te maken.
+              </p>
             </div>
 
           </div>
         </div>
+
+        <div style="text-align: center; margin-top: 3rem; margin-bottom: 2rem;">
+          <a href="/index.html#contact" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">Stel uw show samen</a>
+        </div>
+
       </div>
     </section>
   `;
