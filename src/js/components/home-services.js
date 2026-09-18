@@ -26,7 +26,7 @@ export function setupHomeServices(element) {
             </div>
             <div class="service-content">
               <h3>Meet & Greets</h3>
-              <p>Tover uw locatie om tot een magische ontmoetingsplek met doordachte meet & greets die zorgen voor een onvergetelijke beleving.</p>
+              <p>Tover uw evenement, bedrijf of huiskamer om tot een magische ontmoetingsplek. Perfect voor zowel grootse evenementen als intieme, particuliere bezoeken.</p>
               <a href="/meet-en-greets.html" class="service-link">Lees meer <span>&rarr;</span></a>
             </div>
           </div>
