@@ -27,24 +27,48 @@ export function setupShows(element) {
             Kom alvast in de stemming voordat Sinterklaas arriveert. Kies voor de vrolijke Proefpiet show, of stel zelf iets leuks samen met onze Entertainment Pieten.
           </p>
           
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-            <div style="background: var(--color-surface); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-              <h4 class="text-navy" style="font-size: 1.4rem; margin-bottom: 0.5rem;">De Proefpiet Show</h4>
-              <p style="color: var(--color-text-light); font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">
-                Een muzikale voorstelling vol bekende liedjes en trucjes. Een leuke opwarmer voordat Sinterklaas binnenkomt.
-              </p>
+          <!-- Proefpiet Show -->
+          <div style="background: var(--color-surface); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 2.5rem;">
+            <h4 class="text-navy" style="font-size: 1.4rem; margin-bottom: 0.5rem;">De Proefpiet Show</h4>
+            <p style="color: var(--color-text-light); font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">
+              Een muzikale voorstelling vol bekende liedjes en trucjes. Een leuke opwarmer voordat Sinterklaas binnenkomt.
+            </p>
+          </div>
+
+          <h4 class="text-navy" style="font-size: 1.3rem; margin-bottom: 1.5rem;">Onze Entertainment Pieten:</h4>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem;">
+            
+            <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎷</div>
+              <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Saxophone Piet</strong>
+              <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Gezellige live muziek</p>
             </div>
 
-            <div style="background: rgba(0,0,0,0.03); padding: 2rem; border-radius: 8px;">
-              <h4 class="text-navy" style="font-size: 1.3rem; margin-bottom: 1rem;">Onze Entertainment Pieten:</h4>
-              <ul style="list-style: none; padding: 0; margin: 0; color: var(--color-text-light); font-size: 1.1rem; line-height: 1.8;">
-                <li><span style="color: var(--color-accent); margin-right: 8px;">★</span> <strong>Saxophone Piet:</strong> Brengt gezellige live muziek.</li>
-                <li><span style="color: var(--color-accent); margin-right: 8px;">★</span> <strong>DJ Piet:</strong> Draait alle Sinterklaashits.</li>
-                <li><span style="color: var(--color-accent); margin-right: 8px;">★</span> <strong>Liedjes Piet:</strong> Zingt samen met de kinderen.</li>
-                <li><span style="color: var(--color-accent); margin-right: 8px;">★</span> <strong>Schmink Pieten:</strong> Voor mooie gezichtsschilderingen.</li>
-                <li><span style="color: var(--color-accent); margin-right: 8px;">★</span> <strong>Knutsel Piet:</strong> Lekker creatief aan de slag.</li>
-              </ul>
+            <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎧</div>
+              <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">DJ Piet</strong>
+              <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Draait de hits</p>
             </div>
+
+            <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎤</div>
+              <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Liedjes Piet</strong>
+              <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Samen zingen</p>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
+              <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Schmink Pieten</strong>
+              <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Gezichtsschilderingen</p>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">✂️</div>
+              <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Knutsel Piet</strong>
+              <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Creatief aan de slag</p>
+            </div>
+
           </div>
         </div>
 
