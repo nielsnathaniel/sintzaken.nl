@@ -23,7 +23,7 @@ export function setupSaxophonePiet(element) {
         </div>
 
         <div style="text-align: center; margin-bottom: 4rem;">
-          <p style="font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 2rem; font-style: italic;">(Binnenkort voegen we hier prachtige sfeerfoto's toe!)</p>
+          
           <a href="/index.html#contact" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">Deze Piet boeken</a>
           <br><br>
           <a href="/shows.html" class="btn btn-secondary" style="font-size: 1.1rem; padding: 1rem 2rem; margin-top: 1rem;">Terug naar overzicht</a>
