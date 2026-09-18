@@ -6,7 +6,7 @@ export function setupHero(element) {
           Beleef de Ultieme <br><span class="text-gold">Sinterklaas Magie</span>
         </h1>
         <p style="font-size: 1.4rem; font-family: var(--font-body); font-weight: 400; color: #f0f0f0; margin-bottom: 3rem; text-shadow: 0 2px 15px rgba(0,0,0,0.8); max-width: 600px; line-height: 1.6;">
-          Voor exclusieve shows, magische bedrijfsbezoeken en onvergetelijke meet & greets. Wij verzorgen het tot in de finesses.
+          Laat de Sint en zijn Pieten jullie bedrijf omtoveren tot een feestelijk en warm Sinterklaasfeest. Van onvergetelijke bedrijfsfeesten tot vrolijke meet & greets.
         </p>
         <div style="display: flex; gap: 1.5rem; justify-content: flex-start; flex-wrap: wrap;">
           <a href="/#home-contact-section" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3.5rem; letter-spacing: 1px;">Offerte Aanvragen</a>

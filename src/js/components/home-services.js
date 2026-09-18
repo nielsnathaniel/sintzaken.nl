@@ -37,7 +37,7 @@ export function setupHomeServices(element) {
             </div>
             <div class="service-content">
               <h3>Bedrijfsfeesten</h3>
-              <p>Gun uw medewerkers en hun gezin een premium Sinterklaasbezoek. Een feilloos optreden waarbij pure verwondering centraal staat.</p>
+              <p>Een onvergetelijk feest voor collega's en hun families. Een warme, gezellige middag vol magie, strooigoed en blije gezichtjes.</p>
               <a href="/bedrijven.html" class="service-link">Lees meer <span>&rarr;</span></a>
             </div>
           </div>

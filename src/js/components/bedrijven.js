@@ -4,22 +4,22 @@ export function setupBedrijven(element) {
       <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-lg);">
         
         <div style="flex: 1; min-width: 300px;">
-          <h2 class="text-gold" style="font-size: 2.5rem;">Een Magisch Sinterklaasfeest op de Zaak</h2>
+          <h2 class="text-gold" style="font-size: 2.5rem;">Sinterklaas op het Bedrijf: Een Magisch Feest</h2>
           <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--color-background);">
-            Wij ontzorgen HR- en eventmanagers volledig. Geniet samen met uw medewerkers en hun gezinnen van een vlekkeloos, sfeervol en betoverend evenement.
+            Vergeet even de waan van de dag en laat de Sint en zijn Pieten de sfeer bepalen. Wij toveren uw bedrijf om tot een warme, feestelijke plek waar collega's en hun gezinnen samen genieten van een sfeervolle en onvergetelijke pakjesmiddag. Alles wordt tot in de puntjes verzorgd, zodat u zelf volop kunt meegenieten!
           </p>
           <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
             <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--color-accent);">✓</span> Prachtige maatwerk evenementen
+              <span style="color: var(--color-accent);">✓</span> Een onvergetelijke, warme Sinterklaas beleving
             </li>
             <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--color-accent);">✓</span> Vlekkeloze regie van a tot z
+              <span style="color: var(--color-accent);">✓</span> Volledig verzorgd, van aankomst tot cadeautjes
             </li>
             <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--color-accent);">✓</span> Premium, kindvriendelijke Roetveegpieten
+              <span style="color: var(--color-accent);">✓</span> Vrolijke, prachtig geklede Roetveegpieten
             </li>
           </ul>
-          <a href="#contact" class="btn btn-primary">Bespreek de mogelijkheden</a>
+          <a href="#contact" class="btn btn-primary">Bespreek het grote feest</a>
         </div>
         
         <div style="flex: 1; min-width: 300px; position: relative;">
@@ -53,7 +53,7 @@ export function setupBedrijven(element) {
           <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 8px; border-left: 3px solid var(--color-accent);">
             <h4 class="text-gold" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Feestelijke Fotostudio</h4>
             <p style="color: var(--color-background); font-size: 0.95rem; opacity: 0.9;">
-              Een prachtige foto samen met de Sint als tastbaar aandenken. Zelfs de directie ontsnapt niet aan een vrolijk kiekje!
+              Een prachtige foto samen met de Sint als tastbaar aandenken. Zelfs de baas ontsnapt niet aan een vrolijk kiekje!
             </p>
           </div>
           
