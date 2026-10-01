@@ -40,16 +40,16 @@ export function initChatbot() {
     widget.className = "customer-chat-widget";
     widget.innerHTML = `
         <div class="c-chat-bubble" id="c-chat-bubble" onclick="document.getElementById('c-chat-toggle').click()">
-            <strong>Open Taai Taai</strong>
-            Geen idee wat bij jullie past? Vertel Taai Taai wat je organiseert. →
+            <strong>ChatG-Piet</strong>
+            Geen idee wat bij jullie past? Vertel ChatG-Piet wat je organiseert. →
         </div>
         <div class="customer-chat-window" id="c-chat-window">
             <div class="c-chat-header">
-                <h3>Open Taai Taai 🎁</h3>
+                <h3>ChatG-Piet 🎁</h3>
                 <button class="c-chat-close" id="c-chat-close">&times;</button>
             </div>
             <div class="c-chat-messages" id="c-chat-messages">
-                <div class="c-message bot">Welkom bij Sint Zaken! Ik ben Open Taai Taai (je slimme Sinterklaas assistent). Voor wie of wat organiseer je iets? Dan kijk ik even met je mee!</div>
+                <div class="c-message bot">Welkom bij Sint Zaken! Ik ben ChatG-Piet (je slimme Sinterklaas assistent). Voor wie of wat organiseer je iets? Dan kijk ik even met je mee!</div>
             </div>
             <div class="c-chat-input-area">
                 <input type="text" id="c-chat-input" class="c-chat-input" placeholder="Typ uw vraag..." autocomplete="off" />

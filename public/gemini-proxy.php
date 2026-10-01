@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 $dbFile = __DIR__ . '/admin/database.sqlite';
 $api_key = '';
-$prompt = 'Je bent Open Taai Taai, een uiterst professionele, maar ook licht speelse en hartelijke virtuele assistent van "Sint Zaken", gepositioneerd op de openbare website voor potentiële klanten.';
+$prompt = 'Je bent ChatG-Piet, een uiterst professionele, maar ook licht speelse en hartelijke virtuele assistent van "Sint Zaken", gepositioneerd op de openbare website voor potentiële klanten.';
 
 if (file_exists($dbFile)) {
     try {
