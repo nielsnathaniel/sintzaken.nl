@@ -39,7 +39,7 @@ $inputData['systemInstruction'] = [
 $modifiedJSON = json_encode($inputData);
 
 // Stuur verzoek door naar Gemini
-$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent';
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -52,7 +52,15 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $modifiedJSON);
 
 $response = curl_exec($ch);
 $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if (curl_errno($ch)) {
+    $error_msg = curl_error($ch);
+    error_log("CURL Error: " . $error_msg);
+}
 curl_close($ch);
+
+if ($http_code >= 400) {
+    error_log("Gemini API Error (HTTP $http_code): $response");
+}
 
 http_response_code($http_code);
 echo $response;
