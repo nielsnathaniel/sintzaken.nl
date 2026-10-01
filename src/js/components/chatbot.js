@@ -118,17 +118,28 @@ export function initChatbot() {
 
             const systemInstruction = `Je bent ChatG-Piet, een uiterst professionele, maar ook licht speelse en hartelijke virtuele assistent van "Sint Zaken", gepositioneerd op de openbare website voor potentiële klanten.`;
 
-            const res = await fetch("/gemini-proxy.php", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    contents: geminiHistory,
-                    systemInstruction: { parts: [{ text: systemInstruction }] },
-                    generationConfig: { temperature: 0.2 }
-                })
-            });
-
-            const data = await res.json();
+            let res, data;
+            let retries = 2;
+            while (retries >= 0) {
+                res = await fetch("/gemini-proxy.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        contents: geminiHistory,
+                        systemInstruction: { parts: [{ text: systemInstruction }] },
+                        generationConfig: { temperature: 0.2 }
+                    })
+                });
+                data = await res.json();
+                
+                // If it's a 503 error (overloaded), retry up to 2 times
+                if (data.error && data.error.http_code === 503 && retries > 0) {
+                    retries--;
+                    await new Promise(resolve => setTimeout(resolve, 1500)); // Wait 1.5s
+                    continue;
+                }
+                break;
+            }
             
             removeMessage("typing-indicator");
 
