@@ -47,6 +47,9 @@ $stats_chats = $db->query("SELECT COUNT(*) FROM chats")->fetchColumn();
     <div class="nav-links">
         <a href="dashboard.php" class="active">Overzicht</a>
         <a href="forms.php">Formulieren</a>
+        <a href="stats.php">Statistieken</a>
+        <a href="chats.php">ChatGPiet</a>
+        <a href="content.php">Content</a>
         <a href="?logout=1">Uitloggen</a>
     </div>
 </div>
@@ -70,7 +73,7 @@ $stats_chats = $db->query("SELECT COUNT(*) FROM chats")->fetchColumn();
         <p>Via ChatGPiet</p>
     </a>
     
-    <a href="#" class="card" onclick="alert('Teksten dashboard komt later!')">
+    <a href="content.php" class="card">
         <h2>✏️ Content</h2>
         <div class="number">--</div>
         <p>Website teksten aanpassen</p>
