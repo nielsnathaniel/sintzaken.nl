@@ -51,7 +51,7 @@ $stats_chats = $db->query("SELECT COUNT(*) FROM chats")->fetchColumn();
         <a href="chats.php">ChatGPiet</a>
         <a href="content.php">Content</a>
         <a href="users.php">Gebruikers</a>
-        <a href="?logout=1">Uitloggen</a>
+        <a href="logout.php">Uitloggen</a>
     </div>
 </div>
 

@@ -97,6 +97,7 @@ if (isset($_GET['edit']) && is_numeric($_GET['edit'])) {
         <a href="forms.php">Formulieren</a>
         <a href="mail_templates.php">Mail Templates</a>
         <a href="users.php">Gebruikers</a>
+        <a href="logout.php">Uitloggen</a>
     </div>
 </div>
 <div class="container">

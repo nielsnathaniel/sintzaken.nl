@@ -152,7 +152,7 @@ if ($is_superadmin) {
         <a href="chats.php">ChatGPiet</a>
         <a href="content.php">Content</a>
         <a href="users.php" class="active">Gebruikers</a>
-        <a href="?logout=1">Uitloggen</a>
+        <a href="logout.php">Uitloggen</a>
     </div>
 </div>
 <div class="container">

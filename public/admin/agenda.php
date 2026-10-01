@@ -100,6 +100,7 @@ foreach($appointments as $app) {
         <a href="forms.php">Formulieren</a>
         <a href="mail_templates.php">Mail Templates</a>
         <a href="users.php">Gebruikers</a>
+        <a href="logout.php">Uitloggen</a>
     </div>
 </div>
 

@@ -62,7 +62,7 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
         <a href="chats.php">ChatGPiet</a>
         <a href="content.php" class="active">Content</a>
         <a href="users.php">Gebruikers</a>
-        <a href="?logout=1">Uitloggen</a>
+        <a href="logout.php">Uitloggen</a>
     </div>
 </div>
 <div class="container">

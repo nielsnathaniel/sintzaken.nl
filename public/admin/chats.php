@@ -65,7 +65,7 @@ $sessions = $stmt->fetchAll();
         <a href="stats.php">Statistieken</a>
         <a href="chats.php" class="active">ChatGPiet</a>
         <a href="users.php">Gebruikers</a>
-        <a href="?logout=1">Uitloggen</a>
+        <a href="logout.php">Uitloggen</a>
     </div>
 </div>
 
