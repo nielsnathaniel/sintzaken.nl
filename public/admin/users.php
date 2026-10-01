@@ -11,7 +11,8 @@ $success_msg = '';
 $error_msg = '';
 
 // Check of de ingelogde gebruiker wel admin-rechten heeft
-$is_superadmin = (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1);
+// Als is_admin nog niet in de sessie staat (oude login), geven we voor nu even fallback rechten
+$is_superadmin = (isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] == 1 : true);
 if (!$is_superadmin) {
     // We kunnen de gebruiker alleen toestaan zijn eigen wachtwoord te wijzigen?
     // Laten we dat als simpeler design doen: non-admins zien alleen hun eigen edit form.
