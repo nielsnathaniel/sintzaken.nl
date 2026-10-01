@@ -29,8 +29,8 @@ export async function setupHomeServices(element) {
             <div class="service-img" style="background-image: url('/images/sint_show_stage.jpg');">
             </div>
             <div class="service-content">
-              <h3>${s1_title}</h3>
-              <p>${s1_text}</p>
+              <h3><span class="cms-editable" data-page="home" data-key="home_service1_title">${s1_title}</span></h3>
+              <p><span class="cms-editable" data-page="home" data-key="home_service1_text">${s1_text}</span></p>
               <a href="/shows.html" class="service-link">Lees meer <span>&rarr;</span></a>
             </div>
           </div>
@@ -40,8 +40,8 @@ export async function setupHomeServices(element) {
             <div class="service-img" style="background-image: url('/images/winkelcentrum_sint.jpg');">
             </div>
             <div class="service-content">
-              <h3>${s2_title}</h3>
-              <p>${s2_text}</p>
+              <h3><span class="cms-editable" data-page="home" data-key="home_service2_title">${s2_title}</span></h3>
+              <p><span class="cms-editable" data-page="home" data-key="home_service2_text">${s2_text}</span></p>
               <a href="/meet-en-greets.html" class="service-link">Lees meer <span>&rarr;</span></a>
             </div>
           </div>
@@ -51,8 +51,8 @@ export async function setupHomeServices(element) {
             <div class="service-img" style="background-image: url('/images/bedrijfsfeest_definitief.jpg');">
             </div>
             <div class="service-content">
-              <h3>${s3_title}</h3>
-              <p>${s3_text}</p>
+              <h3><span class="cms-editable" data-page="home" data-key="home_service3_title">${s3_title}</span></h3>
+              <p><span class="cms-editable" data-page="home" data-key="home_service3_text">${s3_text}</span></p>
               <a href="/bedrijven.html" class="service-link">Lees meer <span>&rarr;</span></a>
             </div>
           </div>

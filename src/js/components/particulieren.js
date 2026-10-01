@@ -17,10 +17,10 @@ export async function setupParticulieren(element) {
       
       <div class="container" style="position: relative; z-index: 2; text-align: center; padding-top: 3rem; padding-bottom: 3rem;">
         <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-family: var(--font-heading); color: var(--color-surface); text-shadow: 0 4px 15px rgba(0,0,0,0.8); margin-bottom: 1rem; font-weight: 700;">
-          ${title}
+          <span class="cms-editable" data-page="particulieren" data-key="part_title">${title}</span>
         </h1>
         <p style="font-size: 1.2rem; color: #f0f0f0; max-width: 800px; margin: 0 auto; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
-          ${subtitle}
+          <span class="cms-editable" data-page="particulieren" data-key="part_subtitle">${subtitle}</span>
         </p>
       </div>
     </section>
@@ -31,10 +31,10 @@ export async function setupParticulieren(element) {
           <div style="background-color: var(--color-surface); padding: 3rem; border-radius: 8px; border: 1px solid rgba(138, 21, 56, 0.1); box-shadow: 0 10px 40px rgba(0,0,0,0.05); border-top: 4px solid var(--color-accent);">
             <h3 class="text-red" style="font-size: 1.8rem; margin-bottom: 0.5rem; text-align: center;">Aanvraag Premium Tijdslot</h3>
             <p style="font-size: 2.2rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem; text-align: center;">
-              ${price} <span style="font-size: 1.1rem; font-weight: 400; color: var(--color-text-light);">incl. BTW</span>
+              <span class="cms-editable" data-page="particulieren" data-key="part_price">${price}</span> <span style="font-size: 1.1rem; font-weight: 400; color: var(--color-text-light);">incl. BTW</span>
             </p>
             <p style="margin-bottom: 2rem; color: var(--color-text-light); border-top: 1px solid #eee; padding-top: 1.5rem; font-size: 1rem; text-align: center; line-height: 1.6;">
-              ${disclaimer.replace(/\n/g, '<br>')}
+              <span class="cms-editable" data-page="particulieren" data-key="part_disclaimer">${disclaimer.replace(/\n/g, '<br>')}</span>
             </p>
 
             <form id="contact-form" action="/contact.php" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">

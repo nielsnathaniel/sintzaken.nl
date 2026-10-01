@@ -18,10 +18,10 @@ export async function setupMeetEnGreets(element) {
       
       <div class="container" style="position: relative; z-index: 2; text-align: center; padding-top: 3rem; padding-bottom: 3rem;">
         <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-family: var(--font-heading); color: var(--color-surface); text-shadow: 0 4px 15px rgba(0,0,0,0.8); margin-bottom: 1rem; font-weight: 700;">
-          ${title}
+          <span class="cms-editable" data-page="meet-greets" data-key="mg_title">${title}</span>
         </h1>
         <p style="font-size: 1.2rem; color: #f0f0f0; max-width: 800px; margin: 0 auto; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
-          ${subtitle}
+          <span class="cms-editable" data-page="meet-greets" data-key="mg_subtitle">${subtitle}</span>
         </p>
       </div>
     </section>
@@ -32,13 +32,13 @@ export async function setupMeetEnGreets(element) {
         <div style="background: var(--color-surface); padding: 3rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-left: 5px solid var(--color-gold); margin-bottom: 4rem;">
           <h2 class="text-navy" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Waarom een Meet & Greet?</h2>
           <p style="font-size: 1.15rem; color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.8;">
-            ${text1}
+            <span class="cms-editable" data-page="meet-greets" data-key="mg_text1">${text1}</span>
           </p>
           <p style="font-size: 1.15rem; color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.8;">
-            ${text2}
+            <span class="cms-editable" data-page="meet-greets" data-key="mg_text2">${text2}</span>
           </p>
           <p style="font-size: 1.1rem; color: var(--color-red); font-weight: 600; margin-bottom: 0;">
-            ${highlight}
+            <span class="cms-editable" data-page="meet-greets" data-key="mg_highlight">${highlight}</span>
           </p>
         </div>
 

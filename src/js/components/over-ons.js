@@ -13,7 +13,7 @@ export async function setupOverOns(element) {
       <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4rem;">
         
         <div style="flex: 1; min-width: 300px;">
-          <h2 class="text-gold" style="font-size: 2.5rem; margin-bottom: 1rem;">${title}</h2>
+          <h2 class="text-gold" style="font-size: 2.5rem; margin-bottom: 1rem;"><span class="cms-editable" data-page="over-ons" data-key="about_title">${title}</span></h2>
           <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 2rem; color: var(--color-background);">
             ${text.replace(/\n/g, '<br><br>')}
           </p>

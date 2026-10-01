@@ -16,19 +16,19 @@ export async function setupBedrijven(element) {
       <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-lg);">
         
         <div style="flex: 1; min-width: 300px;">
-          <h2 class="text-gold" style="font-size: 2.5rem;">${title}</h2>
+          <h2 class="text-gold" style="font-size: 2.5rem;"><span class="cms-editable" data-page="bedrijven" data-key="bf_title">${title}</span></h2>
           <p style="font-size: 1.15rem; margin-bottom: 1.5rem; color: var(--color-background); opacity: 0.9;">
-            ${subtitle}
+            <span class="cms-editable" data-page="bedrijven" data-key="bf_subtitle">${subtitle}</span>
           </p>
           <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--color-background);">
-            ${text1}
+            <span class="cms-editable" data-page="bedrijven" data-key="bf_text1">${text1}</span>
           </p>
           <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--color-background);">
-            ${text2}
+            <span class="cms-editable" data-page="bedrijven" data-key="bf_text2">${text2}</span>
           </p>
           <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
             <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--color-accent); font-weight: bold;"></span> ${usp}
+              <span style="color: var(--color-accent); font-weight: bold;"></span> <span class="cms-editable" data-page="bedrijven" data-key="bf_usp">${usp}</span>
             </li>
           </ul>
           <a href="#contact" class="btn btn-primary">Bespreek het grote feest</a>

@@ -90,15 +90,15 @@ export async function setupShows(element) {
         </div>
 
         <div style="margin-bottom: 4rem; background: var(--color-surface); padding: 3rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-left: 5px solid var(--color-gold);">
-          <h2 class="text-navy" style="font-size: 2.5rem; margin-bottom: 1.5rem;">${m_title}</h2>
+          <h2 class="text-navy" style="font-size: 2.5rem; margin-bottom: 1.5rem;"><span class="cms-editable" data-page="shows" data-key="shows_main_title">${m_title}</span></h2>
           <p style="font-size: 1.15rem; color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.8;">
-            ${m_text1}
+            <span class="cms-editable" data-page="shows" data-key="shows_main_text1">${m_text1}</span>
           </p>
           <p style="font-size: 1.15rem; color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.8;">
-            ${m_text2}
+            <span class="cms-editable" data-page="shows" data-key="shows_main_text2">${m_text2}</span>
           </p>
           <p style="font-size: 1.1rem; color: var(--color-red); font-weight: 600; margin-bottom: 0;">
-            ${m_usp}
+            <span class="cms-editable" data-page="shows" data-key="shows_main_usp">${m_usp}</span>
           </p>
         </div>
 
