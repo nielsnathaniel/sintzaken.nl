@@ -25,6 +25,28 @@ if (empty($api_key)) {
     exit(json_encode(['error' => ['status' => 'NO_API_KEY', 'message' => 'Geen API sleutel ingesteld in het admin paneel.']]));
 }
 
+// Fetch all website content to inject into the bot's context
+$site_context = "";
+if (isset($db)) {
+    $stmt = $db->query("SELECT key, value FROM content WHERE key NOT LIKE 'gemini_%' AND value != ''");
+    $data_strings = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        // Strip HTML tags for cleaner context
+        $clean_val = strip_tags($row['value']);
+        $data_strings[] = $row['key'] . ": " . $clean_val;
+    }
+    if (!empty($data_strings)) {
+        $site_context = "
+
+BELANGRIJKE WEBSITE INFORMATIE:
+Je hebt toegang tot de actuele teksten en prijzen van de website. Gebruik dit om vragen accuraat te beantwoorden. Hier is de data:
+" . implode("
+", $data_strings);
+    }
+}
+$prompt .= $site_context;
+
+
 $inputJSON = file_get_contents('php://input');
 $inputData = json_decode($inputJSON, true);
 
