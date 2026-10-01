@@ -52,7 +52,7 @@ $stats_chats = $db->query("SELECT COUNT(*) FROM chats")->fetchColumn();
 </div>
 
 <div class="container">
-    <a href="#" class="card" onclick="alert('Statistieken komen later!')">
+    <a href="stats.php" class="card">
         <h2>📊 Paginaweergaven</h2>
         <div class="number"><?php echo $stats_views; ?></div>
         <p>Unieke bezoeken</p>

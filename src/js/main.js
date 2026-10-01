@@ -22,6 +22,15 @@ import { initNavigation } from './components/navigation.js';
 // Initialize UI components
 initNavigation();
 
+// Initialize simple pageview tracker
+try {
+    fetch('/api/track.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ page: window.location.pathname })
+    }).catch(e => console.log('Tracking error:', e));
+} catch(e) {}
+
 // Select required containers
 const heroSection = document.querySelector('#hero-section');
 const homeValueSection = document.querySelector('#home-value-section');
