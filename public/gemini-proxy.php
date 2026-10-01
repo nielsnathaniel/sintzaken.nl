@@ -61,7 +61,7 @@ $inputData['systemInstruction'] = [
 $modifiedJSON = json_encode($inputData);
 
 // Stuur verzoek door naar Gemini
-$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent';
+$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent';
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
