@@ -18,9 +18,11 @@ import { setupLiedjesPiet } from './components/liedjes-piet.js';
 import { setupSchminkPiet } from './components/schmink-piet.js';
 import { setupKnutselPiet } from './components/knutsel-piet.js';
 import { initNavigation } from './components/navigation.js';
+import { initChatbot } from './components/chatbot.js';
 
 // Initialize UI components
 initNavigation();
+initChatbot();
 
 // Initialize simple pageview tracker
 try {
