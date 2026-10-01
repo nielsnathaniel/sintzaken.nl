@@ -54,6 +54,7 @@ $top_pages = $stmt->fetchAll();
         <a href="dashboard.php">Overzicht</a>
         <a href="forms.php">Formulieren</a>
         <a href="stats.php" class="active">Statistieken</a>
+        <a href="users.php">Gebruikers</a>
         <a href="?logout=1">Uitloggen</a>
     </div>
 </div>

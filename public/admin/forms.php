@@ -53,6 +53,7 @@ $contacts = $stmt->fetchAll();
     <div class="nav-links">
         <a href="dashboard.php">Overzicht</a>
         <a href="forms.php" class="active">Formulieren</a>
+        <a href="users.php">Gebruikers</a>
         <a href="?logout=1">Uitloggen</a>
     </div>
 </div>

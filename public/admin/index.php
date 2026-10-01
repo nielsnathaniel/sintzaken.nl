@@ -2,21 +2,27 @@
 session_start();
 require 'db.php';
 
-// Simpele hardcoded admin voor nu, straks kunnen we dit naar de DB verplaatsen
-$admin_user = 'sint';
-$admin_pass = 'zaken2024'; // Je kunt dit straks wijzigen
-
+// Check of users tabel bestaat en inloggen
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        if ($_POST['username'] === $admin_user && $_POST['password'] === $admin_pass) {
+    if (!empty($_POST['username']) && !empty($_POST['password'])) {
+        $stmt = $db->prepare("SELECT id, username, password, is_admin FROM users WHERE username = ?");
+        $stmt->execute([$_POST['username']]);
+        $user = $stmt->fetch();
+
+        if ($user && password_verify($_POST['password'], $user['password'])) {
             $_SESSION['admin_logged_in'] = true;
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['is_admin'] = $user['is_admin'];
             header("Location: dashboard.php");
             exit;
         } else {
             $error = 'Ongeldige inloggegevens.';
         }
+    } else {
+        $error = 'Vul aub beide velden in.';
     }
 }
 ?>
