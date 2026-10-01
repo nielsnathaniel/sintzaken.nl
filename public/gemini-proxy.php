@@ -38,8 +38,8 @@ $inputData['systemInstruction'] = [
 ];
 $modifiedJSON = json_encode($inputData);
 
-// Stuur verzoek door naar Gemini (we gebruiken versie 2.5 of nieuwer omdat jouw key de allernieuwste generatie gebruikt)
-$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent';
+// Stuur verzoek door naar Gemini (we gebruiken versie 3.7 omdat 3.8 momenteel overbelast is)
+$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent';
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
