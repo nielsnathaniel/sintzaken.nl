@@ -26,6 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     exit;
 }
 
+if(isset($_GET['set_status']) && isset($_GET['id'])) {
+    $db->prepare("UPDATE appointments SET status=? WHERE id=?")->execute([$_GET['set_status'], $_GET['id']]);
+    header("Location: agenda.php?updated=1");
+    exit;
+}
+
 if(isset($_GET['delete'])) {
     $db->prepare("DELETE FROM appointments WHERE id=?")->execute([$_GET['delete']]);
     header("Location: agenda.php?deleted=1");
@@ -47,11 +53,17 @@ $clients = $db->query("SELECT id, name FROM clients ORDER BY name ASC")->fetchAl
 // For FullCalendar
 $events = [];
 foreach($appointments as $app) {
+    $color = '#8a1538';
+    if($app['status'] == 'optie') $color = '#eab308'; // yellow
+    if($app['status'] == 'definitief') $color = '#1e40af'; // blue
+    if($app['status'] == 'voltooid') $color = '#166534'; // green
+    if($app['status'] == 'geannuleerd') $color = '#ef4444'; // red
+
     $events[] = [
         'id' => $app['id'],
         'title' => $app['title'] . ' (' . $app['client_name'] . ')',
         'start' => $app['event_date'] . ($app['event_time'] ? 'T' . $app['event_time'] : ''),
-        'color' => ($app['status'] == 'voltooid') ? '#166534' : '#8a1538'
+        'color' => $color
     ];
 }
 ?>
@@ -140,13 +152,25 @@ foreach($appointments as $app) {
                             <a href="send_mail.php?client_id=<?php echo $app['client_id']; ?>" style="font-size:0.85rem; color:#8a1538; font-weight:bold; text-decoration:none;">✉️ Mail Sturen</a>
                         </td>
                         <td>
-                            <span style="background:<?php echo $app['status']=='voltooid'?'#dcfce7':'#fef08a'; ?>; padding:0.2rem 0.5rem; border-radius:4px; font-size:0.85rem;">
+                            <?php 
+                            $bg = '#f1f5f9'; $col = '#475569';
+                            if($app['status'] == 'optie') { $bg = '#fef08a'; $col = '#854d0e'; }
+                            if($app['status'] == 'definitief') { $bg = '#dbeafe'; $col = '#1e40af'; }
+                            if($app['status'] == 'voltooid') { $bg = '#dcfce7'; $col = '#166534'; }
+                            if($app['status'] == 'geannuleerd') { $bg = '#fef2f2'; $col = '#991b1b'; }
+                            ?>
+                            <span style="background:<?php echo $bg; ?>; color:<?php echo $col; ?>; padding:0.2rem 0.5rem; border-radius:4px; font-size:0.85rem; font-weight:600;">
                                 <?php echo ucfirst($app['status']); ?>
                             </span>
                         </td>
                         <td>
                             <!-- Minimal edit approach: just delete for now to keep code simple, full edit via modal would need JS data filling -->
-                            <a href="?delete=<?php echo $app['id']; ?>" class="btn-danger" onclick="return confirm('Verwijderen?');">Verwijder</a>
+                            <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+                                <?php if($app['status'] != 'optie'): ?><a href="?set_status=optie&id=<?php echo $app['id']; ?>" class="btn-secondary" style="font-size:0.75rem; padding:0.2rem 0.5rem;">Optie</a><?php endif; ?>
+                                <?php if($app['status'] != 'definitief'): ?><a href="?set_status=definitief&id=<?php echo $app['id']; ?>" class="btn-primary" style="font-size:0.75rem; padding:0.2rem 0.5rem; background:#1e40af;">Definitief</a><?php endif; ?>
+                                <?php if($app['status'] != 'geannuleerd'): ?><a href="?set_status=geannuleerd&id=<?php echo $app['id']; ?>" class="btn-secondary" style="font-size:0.75rem; padding:0.2rem 0.5rem; background:#ef4444; color:white;">Annuleer</a><?php endif; ?>
+                            </div>
+                            <a href="?delete=<?php echo $app['id']; ?>" class="btn-danger" style="font-size:0.8rem; margin-left:0;" onclick="return confirm('Verwijderen?');">Verwijder</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -196,8 +220,10 @@ foreach($appointments as $app) {
             <div class="form-group">
                 <label>Status</label>
                 <select name="status">
-                    <option value="gepland">Gepland (Voorbereiding)</option>
-                    <option value="voltooid">Voltooid</option>
+                    <option value="optie">Optie (In de wacht)</option>
+                    <option value="definitief">Definitief (Staat vast)</option>
+                    <option value="voltooid">Voltooid (Achter de rug)</option>
+                    <option value="geannuleerd">Geannuleerd</option>
                 </select>
             </div>
             <div class="form-group">
