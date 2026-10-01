@@ -1,13 +1,10 @@
 <?php
-// Enkel toegankelijk via POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     exit(json_encode(['error' => 'Method not allowed']));
 }
-
 header('Content-Type: application/json');
 
-// Haal API key en Prompt op uit de database
 $dbFile = __DIR__ . '/admin/database.sqlite';
 $api_key = '';
 $prompt = 'Je bent ChatG-Piet, een uiterst professionele, maar ook licht speelse en hartelijke virtuele assistent van "Sint Zaken", gepositioneerd op de openbare website voor potentiële klanten.';
@@ -28,7 +25,6 @@ if (empty($api_key)) {
     exit(json_encode(['error' => ['status' => 'NO_API_KEY', 'message' => 'Geen API sleutel ingesteld in het admin paneel.']]));
 }
 
-// Lees de request data
 $inputJSON = file_get_contents('php://input');
 $inputData = json_decode($inputJSON, true);
 
@@ -37,20 +33,20 @@ if (!$inputData || !isset($inputData['contents'])) {
     exit(json_encode(['error' => 'Invalid request']));
 }
 
-// Injecteer de veilige prompt uit de database, negeer wat de frontend stuurt
 $inputData['systemInstruction'] = [
-    'parts' => [
-        ['text' => $prompt]
-    ]
+    'parts' => [['text' => $prompt]]
 ];
 $modifiedJSON = json_encode($inputData);
 
-// Stuur verzoek door naar de échte Google Gemini API
-$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' . $api_key;
+// Stuur verzoek door naar Gemini (we gebruiken versie 2.5 of nieuwer omdat jouw key de allernieuwste generatie gebruikt)
+$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent';
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'x-goog-api-key: ' . $api_key
+]);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $modifiedJSON);
 
