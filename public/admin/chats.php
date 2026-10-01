@@ -9,7 +9,7 @@ require 'db.php';
 
 // Haal unieke sessies op
 $stmt = $db->query("
-    SELECT session_id, MIN(created_at) as started_at, COUNT(*) as msg_count 
+    SELECT session_id, MIN(created_at) as started_at, COUNT(*) as msg_count, MIN(is_read) as session_read
     FROM chats 
     GROUP BY session_id 
     ORDER BY started_at DESC
@@ -77,9 +77,14 @@ $sessions = $stmt->fetchAll();
         <div class="session-list">
             <?php if(count($sessions) > 0): ?>
                 <?php foreach($sessions as $session): ?>
-                    <div class="session-item" onclick="loadChat('<?php echo htmlspecialchars($session['session_id']); ?>')">
-                        <div class="session-time"><?php echo date('d-m-Y H:i', strtotime($session['started_at'])); ?></div>
-                        <div class="session-id">Bezoeker #<?php echo substr($session['session_id'], -5); ?></div>
+                    <div class="session-item" id="session-<?php echo htmlspecialchars($session['session_id']); ?>" onclick="loadChat('<?php echo htmlspecialchars($session['session_id']); ?>')">
+                        <div class="session-time" style="display: flex; justify-content: space-between;">
+                            <span><?php echo date('d-m-Y H:i', strtotime($session['started_at'])); ?></span>
+                            <?php if($session['session_read'] == 0): ?>
+                                <span class="unread-dot" style="background: #ef4444; width: 8px; height: 8px; border-radius: 50%; display: inline-block;"></span>
+                            <?php endif; ?>
+                        </div>
+                        <div class="session-id" style="<?php echo ($session['session_read'] == 0) ? 'font-weight: 700;' : ''; ?>">Bezoeker #<?php echo substr($session['session_id'], -5); ?></div>
                         <div class="session-count"><?php echo $session['msg_count']; ?> berichten</div>
                     </div>
                 <?php endforeach; ?>
@@ -126,6 +131,14 @@ function loadChat(sessionId) {
             
             // Scroll naar onderen
             chatBox.scrollTop = chatBox.scrollHeight;
+            
+            // Verberg de ongelezen stip visueel
+            const sessionDiv = document.getElementById('session-' + sessionId);
+            if(sessionDiv) {
+                const dot = sessionDiv.querySelector('.unread-dot');
+                if(dot) dot.style.display = 'none';
+                sessionDiv.querySelector('.session-id').style.fontWeight = '500';
+            }
         })
         .catch(err => {
             document.getElementById('chat-box').innerHTML = '<div class="empty-state">Er ging iets mis bij het laden.</div>';

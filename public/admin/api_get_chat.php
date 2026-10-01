@@ -18,5 +18,9 @@ $stmt = $db->prepare("SELECT role, message, created_at FROM chats WHERE session_
 $stmt->execute([':session' => $session_id]);
 $messages = $stmt->fetchAll();
 
+// Mark messages as read
+$update_stmt = $db->prepare("UPDATE chats SET is_read = 1 WHERE session_id = :session");
+$update_stmt->execute([':session' => $session_id]);
+
 echo json_encode($messages);
 ?>
