@@ -1,10 +1,23 @@
 export function initChatbot() {
     const style = document.createElement("style");
     style.textContent = `
-        .customer-chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-family: 'Inter', sans-serif; }
-        .customer-chat-toggle { background: #8a1538; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s; }
-        .customer-chat-toggle:hover { transform: scale(1.05); }
-        .customer-chat-window { position: absolute; bottom: 80px; right: 0; width: 350px; height: 450px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: none; flex-direction: column; overflow: hidden; border: 1px solid rgba(0,0,0,0.1); }
+        @keyframes wiggle { 
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30% { transform: rotate(10deg); }
+            20%, 40% { transform: rotate(-10deg); }
+            50% { transform: rotate(0deg); }
+        }
+        @keyframes floatBubble {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        .customer-chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-family: 'Inter', sans-serif; display: flex; align-items: flex-end; gap: 15px; }
+        .c-chat-bubble { background: white; padding: 12px 18px; border-radius: 20px 20px 0 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); font-size: 0.95rem; color: #1e293b; border: 1px solid #e2e8f0; animation: floatBubble 4s ease-in-out infinite; cursor: pointer; max-width: 220px; display: none; }
+        .c-chat-bubble strong { display: block; color: #8a1538; margin-bottom: 4px; font-size: 0.9rem; }
+        @media (min-width: 768px) { .c-chat-bubble { display: block; } }
+        .customer-chat-toggle { background: #8a1538; color: white; border: none; border-radius: 50%; width: 65px; height: 65px; font-size: 28px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s; animation: wiggle 5s ease-in-out infinite; display: flex; align-items: center; justify-content: center; }
+        .customer-chat-toggle:hover { transform: scale(1.1); animation: none; }
+        .customer-chat-window { position: absolute; bottom: 85px; right: 0; width: 350px; height: 480px; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; border: 1px solid rgba(0,0,0,0.1); }
         .customer-chat-window.open { display: flex; }
         .c-chat-header { background: #8a1538; color: white; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
         .c-chat-header h3 { margin: 0; font-size: 1.1rem; }
@@ -26,20 +39,24 @@ export function initChatbot() {
     const widget = document.createElement("div");
     widget.className = "customer-chat-widget";
     widget.innerHTML = `
+        <div class="c-chat-bubble" id="c-chat-bubble" onclick="document.getElementById('c-chat-toggle').click()">
+            <strong>Open Taai Taai</strong>
+            Geen idee wat bij jullie past? Vertel Taai Taai wat je organiseert. →
+        </div>
         <div class="customer-chat-window" id="c-chat-window">
             <div class="c-chat-header">
-                <h3>ChatG-Piet</h3>
+                <h3>Open Taai Taai 🎁</h3>
                 <button class="c-chat-close" id="c-chat-close">&times;</button>
             </div>
             <div class="c-chat-messages" id="c-chat-messages">
-                <div class="c-message bot">Welkom bij Sint Zaken! Ik ben ChatG-Piet. Heeft u vragen over onze diensten voor uw bedrijf of evenement?</div>
+                <div class="c-message bot">Welkom bij Sint Zaken! Ik ben Open Taai Taai (je slimme Sinterklaas assistent). Voor wie of wat organiseer je iets? Dan kijk ik even met je mee!</div>
             </div>
             <div class="c-chat-input-area">
                 <input type="text" id="c-chat-input" class="c-chat-input" placeholder="Typ uw vraag..." autocomplete="off" />
                 <button id="c-btn-send">Stuur</button>
             </div>
         </div>
-        <button class="customer-chat-toggle" id="c-chat-toggle">💬</button>
+        <button class="customer-chat-toggle" id="c-chat-toggle">🎁</button>
     `;
     document.body.appendChild(widget);
 
@@ -53,10 +70,12 @@ export function initChatbot() {
 
     let isOpen = false;
     let history = [];
+    const chatBubble = document.getElementById("c-chat-bubble");
 
     chatToggle.addEventListener("click", () => {
         isOpen = !isOpen;
         chatWindow.classList.toggle("open", isOpen);
+        if (isOpen && chatBubble) chatBubble.style.display = "none";
     });
 
     chatClose.addEventListener("click", () => {
