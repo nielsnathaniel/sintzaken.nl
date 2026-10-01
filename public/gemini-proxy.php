@@ -7,16 +7,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 header('Content-Type: application/json');
 
-// Haal API key op uit de database
+// Haal API key en Prompt op uit de database
 $dbFile = __DIR__ . '/admin/database.sqlite';
 $api_key = '';
+$prompt = 'Je bent ChatG-Piet, een uiterst professionele, maar ook licht speelse en hartelijke virtuele assistent van "Sint Zaken", gepositioneerd op de openbare website voor potentiële klanten.';
 
 if (file_exists($dbFile)) {
     try {
         $db = new PDO('sqlite:' . $dbFile);
-        $stmt = $db->query("SELECT value FROM content WHERE key = 'gemini_api_key'");
-        if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $api_key = trim($row['value']);
+        $stmt = $db->query("SELECT key, value FROM content WHERE key IN ('gemini_api_key', 'gemini_prompt')");
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            if ($row['key'] === 'gemini_api_key') $api_key = trim($row['value']);
+            if ($row['key'] === 'gemini_prompt' && !empty(trim($row['value']))) $prompt = trim($row['value']);
         }
     } catch (Exception $e) {}
 }
@@ -35,6 +37,14 @@ if (!$inputData || !isset($inputData['contents'])) {
     exit(json_encode(['error' => 'Invalid request']));
 }
 
+// Injecteer de veilige prompt uit de database, negeer wat de frontend stuurt
+$inputData['systemInstruction'] = [
+    'parts' => [
+        ['text' => $prompt]
+    ]
+];
+$modifiedJSON = json_encode($inputData);
+
 // Stuur verzoek door naar de échte Google Gemini API
 $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' . $api_key;
 
@@ -42,7 +52,7 @@ $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $inputJSON);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $modifiedJSON);
 
 $response = curl_exec($ch);
 $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
