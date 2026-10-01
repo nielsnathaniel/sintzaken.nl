@@ -17,6 +17,7 @@ import { setupDjPiet } from './components/dj-piet.js';
 import { setupLiedjesPiet } from './components/liedjes-piet.js';
 import { setupSchminkPiet } from './components/schmink-piet.js';
 import { setupKnutselPiet } from './components/knutsel-piet.js';
+import { setupCircusPieten } from './components/circus-pieten.js';
 import { initNavigation } from './components/navigation.js';
 import { initChatbot } from './components/chatbot.js';
 
@@ -74,3 +75,6 @@ if (djPietSection) setupDjPiet(djPietSection);
 if (liedjesPietSection) setupLiedjesPiet(liedjesPietSection);
 if (schminkPietSection) setupSchminkPiet(schminkPietSection);
 if (knutselPietSection) setupKnutselPiet(knutselPietSection);
+
+const circusPietenSection = document.querySelector('#circus-pieten-section');
+if (circusPietenSection) setupCircusPieten(circusPietenSection);

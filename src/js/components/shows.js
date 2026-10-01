@@ -78,6 +78,14 @@ export async function setupShows(element) {
               </div>
             </a>
 
+            <a href="/circus-pieten.html" style="text-decoration: none; display: block;">
+              <div style="background: rgba(0,0,0,0.03); padding: 1.5rem 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(0,0,0,0.05); height: 100%; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎪</div>
+                <strong class="text-navy" style="display: block; font-size: 1.05rem; margin-bottom: 0.5rem;">Circus Pieten</strong>
+                <p style="color: var(--color-text-light); font-size: 0.9rem; margin: 0; line-height: 1.4;">Acrobatiek & parade</p>
+              </div>
+            </a>
+
           </div>
         </div>
 
