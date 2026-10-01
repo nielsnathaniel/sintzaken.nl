@@ -71,6 +71,8 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
         <a href="?tab=shows" class="tab <?php echo $tab === 'shows' ? 'active' : ''; ?>">🎭 Shows</a>
         <a href="?tab=meet-greets" class="tab <?php echo $tab === 'meet-greets' ? 'active' : ''; ?>">🤝 Meet & Greets</a>
         <a href="?tab=bedrijven" class="tab <?php echo $tab === 'bedrijven' ? 'active' : ''; ?>">🏢 Bedrijfsfeesten</a>
+        <a href="?tab=particulieren" class="tab <?php echo $tab === 'particulieren' ? 'active' : ''; ?>">🏠 Particulieren</a>
+        <a href="?tab=over-ons" class="tab <?php echo $tab === 'over-ons' ? 'active' : ''; ?>">ℹ️ Over Ons</a>
         <a href="?tab=settings" class="tab <?php echo $tab === 'settings' ? 'active' : ''; ?>">⚙️ Instellingen</a>
     </div>
     <form method="POST">
@@ -126,6 +128,23 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
             <div class="form-group"><label>Alinea 1</label><textarea name="content_bf_text1"><?php echo get_val('bf_text1', 'Een Sinterklaasfeest op het werk is een prachtig moment van verbinding, niet alleen voor de kinderen, maar ook voor uw medewerkers. Wij nemen de volledige organisatie uit handen zodat u zelf kunt genieten.', $content); ?></textarea></div>
             <div class="form-group"><label>Alinea 2</label><textarea name="content_bf_text2"><?php echo get_val('bf_text2', 'Met een professioneel team van acteurs en actrices zorgen wij voor een hoogwaardige beleving die past bij de cultuur van uw bedrijf.', $content); ?></textarea></div>
             <div class="form-group"><label>USP (Rood)</label><input type="text" name="content_bf_usp" value="<?php echo get_val('bf_usp', '✓ Zorgeloos genieten: Wij regelen alles van decor tot entertainment.', $content); ?>"></div>
+        </div>
+
+        <?php elseif($tab === 'particulieren'): ?>
+        <div class="card">
+            <h2>Huisbezoeken (Particulieren)</h2>
+            <div class="form-group"><label>Titel</label><input type="text" name="content_part_title" value="<?php echo get_val('part_title', 'Een Exclusief Huisbezoek', $content); ?>"></div>
+            <div class="form-group"><label>Korte Introductie</label><textarea name="content_part_subtitle"><?php echo get_val('part_subtitle', 'Haal de absolute magie naar uw huiskamer. Wij bieden een onvergetelijke, tot in de puntjes verzorgde Sinterklaas beleving voor het hele gezin.', $content); ?></textarea></div>
+            <hr style="border: 0; border-top: 1px solid #f1f5f9; margin: 2rem 0;">
+            <div class="form-group"><label>Prijs aanduiding</label><input type="text" name="content_part_price" value="<?php echo get_val('part_price', '€450,-', $content); ?>"></div>
+            <div class="form-group"><label>Disclaimer tekst onder de prijs</label><textarea name="content_part_disclaimer"><?php echo get_val('part_disclaimer', 'Vul onderstaand formulier in om een tijdslot (30 min) aan te vragen. Beschikbaarheid is beperkt. Let op: dit is een aanvraag. De definitieve boeking wordt per mail bevestigd.', $content); ?></textarea></div>
+        </div>
+
+        <?php elseif($tab === 'over-ons'): ?>
+        <div class="card">
+            <h2>Over Ons (Organisatie)</h2>
+            <div class="form-group"><label>Titel</label><input type="text" name="content_about_title" value="<?php echo get_val('about_title', 'De Organisatie achter de Traditie', $content); ?>"></div>
+            <div class="form-group"><label>Verhaal / Filosofie</label><textarea name="content_about_text" rows="5"><?php echo get_val('about_text', 'Achter elke magische glimlach van een kind, schuilt een feilloos georganiseerde machine. Sint Zaken is geboren uit de wens om de standaard van het Sinterklaasfeest te verhogen. Geen chaos, geen concessies in kwaliteit, maar een premium beleving waarbij traditie en strakke event-regie samenkomen. Wij zijn de stille motor die de magie feilloos laat draaien.', $content); ?></textarea></div>
         </div>
 
         <?php elseif($tab === 'settings'): ?>
