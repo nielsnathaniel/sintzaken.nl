@@ -66,9 +66,11 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
 </div>
 <div class="container">
     <?php if($success_msg): ?><div class="alert-success">✅ <?php echo $success_msg; ?></div><?php endif; ?>
-    <div class="page-tabs">
+    <div class="page-tabs" style="flex-wrap: wrap;">
         <a href="?tab=home" class="tab <?php echo $tab === 'home' ? 'active' : ''; ?>">🏠 Homepagina</a>
-        <a href="?tab=shows" class="tab <?php echo $tab === 'shows' ? 'active' : ''; ?>">🎭 Shows Pagina</a>
+        <a href="?tab=shows" class="tab <?php echo $tab === 'shows' ? 'active' : ''; ?>">🎭 Shows</a>
+        <a href="?tab=meet-greets" class="tab <?php echo $tab === 'meet-greets' ? 'active' : ''; ?>">🤝 Meet & Greets</a>
+        <a href="?tab=bedrijven" class="tab <?php echo $tab === 'bedrijven' ? 'active' : ''; ?>">🏢 Bedrijfsfeesten</a>
         <a href="?tab=settings" class="tab <?php echo $tab === 'settings' ? 'active' : ''; ?>">⚙️ Instellingen</a>
     </div>
     <form method="POST">
@@ -98,6 +100,32 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
             <div class="form-group"><label>Alinea 1</label><textarea name="content_shows_main_text1"><?php echo get_val('shows_main_text1', 'Zodra de Sinterklaaskoffer op het podium staat, begint het avontuur. De meter op de koffer moet naar de 100% voordat Sinterklaas kan verschijnen. De kinderen helpen actief mee door samen liedjes te zingen.', $content); ?></textarea></div>
             <div class="form-group"><label>Alinea 2</label><textarea name="content_shows_main_text2"><?php echo get_val('shows_main_text2', 'Wanneer de meter vol is, maakt Sinterklaas zijn entree. Een gezellig en interactief programma dat leuk is voor alle leeftijden.', $content); ?></textarea></div>
             <div class="form-group"><label>Rode USP Tekst</label><input type="text" name="content_shows_main_usp" value="<?php echo get_val('shows_main_usp', '✓ Te boeken voor 30, 45 of 60 minuten.', $content); ?>"></div>
+        </div>
+
+        <?php elseif($tab === 'meet-greets'): ?>
+        <div class="card">
+            <h2>Meet & Greets (Header)</h2>
+            <div class="form-group"><label>Titel</label><input type="text" name="content_mg_title" value="<?php echo get_val('mg_title', 'Sinterklaas Meet & Greets', $content); ?>"></div>
+            <div class="form-group"><label>Korte Introductie</label><textarea name="content_mg_subtitle"><?php echo get_val('mg_subtitle', 'Geef uw evenement of winkelcentrum extra magie met een interactieve meet & greet met Sinterklaas en zijn Pieten. Een onvergetelijk moment voor de kinderen.', $content); ?></textarea></div>
+        </div>
+        <div class="card">
+            <h2>Waarom een Meet & Greet? (Tekst)</h2>
+            <div class="form-group"><label>Alinea 1</label><textarea name="content_mg_text1"><?php echo get_val('mg_text1', 'Een meet & greet is de perfecte manier om kinderen persoonlijk in contact te brengen met Sinterklaas. Zonder de verplichting van een lange show, maar wel met de volledige aandacht van de Sint en zijn Pieten.', $content); ?></textarea></div>
+            <div class="form-group"><label>Alinea 2</label><textarea name="content_mg_text2"><?php echo get_val('mg_text2', 'Onze Pieten delen pepernoten uit, maken grapjes en zorgen voor een ontspannen sfeer, terwijl Sinterklaas rustig de tijd neemt voor een praatje en een foto met elk kind.', $content); ?></textarea></div>
+            <div class="form-group"><label>Highlight Tekst (Rood)</label><input type="text" name="content_mg_highlight" value="<?php echo get_val('mg_highlight', '✓ Perfect voor winkelcentra, beurzen en openbare evenementen.', $content); ?>"></div>
+        </div>
+
+        <?php elseif($tab === 'bedrijven'): ?>
+        <div class="card">
+            <h2>Bedrijfsfeesten (Header)</h2>
+            <div class="form-group"><label>Titel</label><input type="text" name="content_bf_title" value="<?php echo get_val('bf_title', 'Bedrijfsfeesten', $content); ?>"></div>
+            <div class="form-group"><label>Korte Introductie</label><textarea name="content_bf_subtitle"><?php echo get_val('bf_subtitle', 'Verwen de kinderen van uw werknemers met een onvergetelijk Sinterklaasfeest. Van compleet georganiseerde theatershows tot kleinschalige interactieve middagen.', $content); ?></textarea></div>
+        </div>
+        <div class="card">
+            <h2>Waarom een bedrijfsfeest via ons?</h2>
+            <div class="form-group"><label>Alinea 1</label><textarea name="content_bf_text1"><?php echo get_val('bf_text1', 'Een Sinterklaasfeest op het werk is een prachtig moment van verbinding, niet alleen voor de kinderen, maar ook voor uw medewerkers. Wij nemen de volledige organisatie uit handen zodat u zelf kunt genieten.', $content); ?></textarea></div>
+            <div class="form-group"><label>Alinea 2</label><textarea name="content_bf_text2"><?php echo get_val('bf_text2', 'Met een professioneel team van acteurs en actrices zorgen wij voor een hoogwaardige beleving die past bij de cultuur van uw bedrijf.', $content); ?></textarea></div>
+            <div class="form-group"><label>USP (Rood)</label><input type="text" name="content_bf_usp" value="<?php echo get_val('bf_usp', '✓ Zorgeloos genieten: Wij regelen alles van decor tot entertainment.', $content); ?>"></div>
         </div>
 
         <?php elseif($tab === 'settings'): ?>

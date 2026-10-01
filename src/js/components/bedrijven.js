@@ -1,22 +1,34 @@
-export function setupBedrijven(element) {
+export async function setupBedrijven(element) {
+  let data = {};
+  try {
+      const res = await fetch('/api/get_content.php?page=bedrijven');
+      data = await res.json();
+  } catch(e) {}
+
+  const title = data.bf_title || 'Sinterklaas op het Bedrijf: Een Magisch Feest';
+  const subtitle = data.bf_subtitle || 'Verwen de kinderen van uw werknemers met een onvergetelijk Sinterklaasfeest. Van compleet georganiseerde theatershows tot kleinschalige interactieve middagen.';
+  const text1 = data.bf_text1 || 'Vergeet even de waan van de dag en laat de Sint en zijn Pieten de sfeer bepalen. Wij toveren uw bedrijf om tot een warme, feestelijke plek waar collega\'s en hun gezinnen samen genieten van een sfeervolle en onvergetelijke pakjesmiddag. Alles wordt tot in de puntjes verzorgd, zodat u zelf volop kunt meegenieten!';
+  const text2 = data.bf_text2 || 'Met een professioneel team van acteurs en actrices zorgen wij voor een hoogwaardige beleving die past bij de cultuur van uw bedrijf.';
+  const usp = data.bf_usp || '✓ Een onvergetelijke, warme Sinterklaas beleving';
+
   element.innerHTML = `
     <section id="bedrijven" class="section section-dark" style="background-color: var(--color-primary-light);">
       <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-lg);">
         
         <div style="flex: 1; min-width: 300px;">
-          <h2 class="text-gold" style="font-size: 2.5rem;">Sinterklaas op het Bedrijf: Een Magisch Feest</h2>
+          <h2 class="text-gold" style="font-size: 2.5rem;">${title}</h2>
+          <p style="font-size: 1.15rem; margin-bottom: 1.5rem; color: var(--color-background); opacity: 0.9;">
+            ${subtitle}
+          </p>
           <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--color-background);">
-            Vergeet even de waan van de dag en laat de Sint en zijn Pieten de sfeer bepalen. Wij toveren uw bedrijf om tot een warme, feestelijke plek waar collega's en hun gezinnen samen genieten van een sfeervolle en onvergetelijke pakjesmiddag. Alles wordt tot in de puntjes verzorgd, zodat u zelf volop kunt meegenieten!
+            ${text1}
+          </p>
+          <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--color-background);">
+            ${text2}
           </p>
           <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
             <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--color-accent);">✓</span> Een onvergetelijke, warme Sinterklaas beleving
-            </li>
-            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--color-accent);">✓</span> Volledig verzorgd, van aankomst tot cadeautjes
-            </li>
-            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--color-accent);">✓</span> Vrolijke, prachtig geklede Roetveegpieten
+              <span style="color: var(--color-accent); font-weight: bold;"></span> ${usp}
             </li>
           </ul>
           <a href="#contact" class="btn btn-primary">Bespreek het grote feest</a>
