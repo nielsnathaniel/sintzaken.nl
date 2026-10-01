@@ -13,12 +13,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = isset($data['email']) ? filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL) : '';
     $message = isset($data['message']) ? strip_tags(trim($data['message'])) : '';
     $phone = isset($data['phone']) ? strip_tags(trim($data['phone'])) : 'Niet opgegeven';
+    $subject_form = isset($data['subject']) ? strip_tags(trim($data['subject'])) : 'Algemene Vraag';
 
     // Validate inputs
     if (empty($name) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         http_response_code(400);
         echo json_encode(["status" => "error", "message" => "Vul alle verplichte velden correct in."]);
         exit;
+    }
+
+    // Save to SQLite Database
+    try {
+        if(file_exists(__DIR__ . '/admin/db.php')) {
+            require __DIR__ . '/admin/db.php';
+            $stmt = $db->prepare("INSERT INTO contacts (name, email, phone, subject, message) VALUES (:name, :email, :phone, :subject, :message)");
+            $stmt->execute([
+                ':name' => $name,
+                ':email' => $email,
+                ':phone' => $phone,
+                ':subject' => $subject_form,
+                ':message' => $message
+            ]);
+        }
+    } catch (Exception $e) {
+        // Silently fail database insertion so email still attempts to send
+        error_log("Failed to save contact to database: " . $e->getMessage());
     }
 
     $recipient = "sint@sintzaken.nl";
