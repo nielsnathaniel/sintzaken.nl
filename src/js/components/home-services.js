@@ -1,4 +1,19 @@
-export function setupHomeServices(element) {
+export async function setupHomeServices(element) {
+  let data = {};
+  try {
+      const res = await fetch('/api/get_content.php?page=home');
+      data = await res.json();
+  } catch(e) {}
+
+  const s1_title = data.home_service1_title || 'Sinterklaas Shows';
+  const s1_text = data.home_service1_text || 'Laat uw publiek wegdromen bij onze impactvolle, hoogwaardige podiumproducties. Perfect getimede shows vol humor, zang en interactie.';
+  
+  const s2_title = data.home_service2_title || 'Meet & Greets';
+  const s2_text = data.home_service2_text || 'Tover uw evenement, bedrijf of huiskamer om tot een magische ontmoetingsplek. Perfect voor zowel grootse evenementen als intieme, particuliere bezoeken.';
+  
+  const s3_title = data.home_service3_title || 'Bedrijfsfeesten';
+  const s3_text = data.home_service3_text || 'Een onvergetelijk feest voor collega\'s en hun families. Een warme, gezellige middag vol magie, strooigoed en blije gezichtjes.';
+
   element.innerHTML = `
     <section id="home-services" class="section section-surface">
       <div class="container text-center">
@@ -14,8 +29,8 @@ export function setupHomeServices(element) {
             <div class="service-img" style="background-image: url('/images/sint_show_stage.jpg');">
             </div>
             <div class="service-content">
-              <h3>Sinterklaas Shows</h3>
-              <p>Laat uw publiek wegdromen bij onze impactvolle, hoogwaardige podiumproducties. Perfect getimede shows vol humor, zang en interactie.</p>
+              <h3>${s1_title}</h3>
+              <p>${s1_text}</p>
               <a href="/shows.html" class="service-link">Lees meer <span>&rarr;</span></a>
             </div>
           </div>
@@ -25,8 +40,8 @@ export function setupHomeServices(element) {
             <div class="service-img" style="background-image: url('/images/winkelcentrum_sint.jpg');">
             </div>
             <div class="service-content">
-              <h3>Meet & Greets</h3>
-              <p>Tover uw evenement, bedrijf of huiskamer om tot een magische ontmoetingsplek. Perfect voor zowel grootse evenementen als intieme, particuliere bezoeken.</p>
+              <h3>${s2_title}</h3>
+              <p>${s2_text}</p>
               <a href="/meet-en-greets.html" class="service-link">Lees meer <span>&rarr;</span></a>
             </div>
           </div>
@@ -36,8 +51,8 @@ export function setupHomeServices(element) {
             <div class="service-img" style="background-image: url('/images/bedrijfsfeest_definitief.jpg');">
             </div>
             <div class="service-content">
-              <h3>Bedrijfsfeesten</h3>
-              <p>Een onvergetelijk feest voor collega's en hun families. Een warme, gezellige middag vol magie, strooigoed en blije gezichtjes.</p>
+              <h3>${s3_title}</h3>
+              <p>${s3_text}</p>
               <a href="/bedrijven.html" class="service-link">Lees meer <span>&rarr;</span></a>
             </div>
           </div>
