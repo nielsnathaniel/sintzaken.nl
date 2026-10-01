@@ -133,7 +133,14 @@ export function initChatbot() {
             removeMessage("typing-indicator");
 
             if (data.error) {
-                if (data.error.status === "RESOURCE_EXHAUSTED") {
+                console.error("Gemini API Error:", data.error);
+                
+                // Remove the user message from history so we don't break the alternating roles rule
+                if(history.length > 0 && history[history.length - 1].role === "user") {
+                    history.pop();
+                }
+
+                if (data.error.status === "RESOURCE_EXHAUSTED" || (data.error.details && data.error.details.error && data.error.details.error.status === "RESOURCE_EXHAUSTED")) {
                     appendMessage("bot", "Oeps! Mijn pieten-geheugen is even vol (API limiet bereikt).");
                 } else {
                     appendMessage("bot", "Excuses, ik kan nu even niet antwoorden.");
@@ -148,6 +155,10 @@ export function initChatbot() {
             trackChat("bot", reply);
 
         } catch (e) {
+            console.error("Fetch Error:", e);
+            if(history.length > 0 && history[history.length - 1].role === "user") {
+                history.pop();
+            }
             removeMessage("typing-indicator");
             appendMessage("bot", "Onze excuses, er is een technische storing opgetreden.");
         }
