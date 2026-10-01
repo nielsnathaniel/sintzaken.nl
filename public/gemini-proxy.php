@@ -60,6 +60,16 @@ curl_close($ch);
 
 if ($http_code >= 400) {
     error_log("Gemini API Error (HTTP $http_code): $response");
+    // Return detailed error for debugging
+    http_response_code($http_code);
+    echo json_encode([
+        'error' => [
+            'status' => 'API_ERROR',
+            'http_code' => $http_code,
+            'details' => json_decode($response, true)
+        ]
+    ]);
+    exit;
 }
 
 http_response_code($http_code);
