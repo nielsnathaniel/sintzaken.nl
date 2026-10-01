@@ -4,37 +4,23 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     header("Location: index.php");
     exit;
 }
-
 require 'db.php';
-
-// Verwerken van formulier data
 $success_msg = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $db->prepare("INSERT OR REPLACE INTO content (key, value) VALUES (:key, :value)");
     foreach ($_POST as $key => $value) {
         if (strpos($key, 'content_') === 0) {
             $db_key = substr($key, 8);
-            $stmt->execute([
-                ':key' => $db_key,
-                ':value' => strip_tags(trim($value))
-            ]);
+            $stmt->execute([':key' => $db_key, ':value' => strip_tags(trim($value))]);
         }
     }
     $success_msg = "Gegevens zijn succesvol opgeslagen! De website is direct bijgewerkt.";
 }
-
-// Alle content ophalen
 $stmt = $db->query("SELECT key, value FROM content");
 $results = $stmt->fetchAll();
 $content = [];
-foreach ($results as $row) {
-    $content[$row['key']] = $row['value'];
-}
-
-function get_val($key, $default, $content) {
-    return isset($content[$key]) ? htmlspecialchars($content[$key]) : htmlspecialchars($default);
-}
-
+foreach ($results as $row) { $content[$row['key']] = $row['value']; }
+function get_val($key, $default, $content) { return isset($content[$key]) ? htmlspecialchars($content[$key]) : htmlspecialchars($default); }
 $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
 ?>
 <!DOCTYPE html>
@@ -51,28 +37,22 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
         .nav-links a { color: white; text-decoration: none; font-weight: 500; margin-left: 1.5rem; opacity: 0.8; }
         .nav-links a:hover, .nav-links a.active { opacity: 1; }
         .container { max-width: 900px; margin: 2rem auto; padding: 0 2rem; }
-        
         .card { background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); padding: 2rem; margin-bottom: 2rem; }
         .card h2 { margin-top: 0; color: #1e293b; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
-        
         .form-group { margin-bottom: 1.5rem; }
         .form-group label { display: block; font-weight: 500; color: #334155; margin-bottom: 0.5rem; }
         .form-group input, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit; font-size: 1rem; box-sizing: border-box; }
         .form-group input:focus, .form-group textarea:focus { border-color: #8a1538; outline: none; }
         .form-group textarea { resize: vertical; min-height: 100px; }
-        
         .btn-save { background: #8a1538; color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; font-size: 1.1rem; cursor: pointer; transition: background 0.2s; width: 100%; }
         .btn-save:hover { background: #a01b44; }
-        
         .alert-success { background: #dcfce7; color: #166534; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; font-weight: 500; text-align: center; border: 1px solid #bbf7d0; }
-        
         .page-tabs { display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid #e2e8f0; }
         .tab { padding: 0.75rem 1.5rem; color: #64748b; text-decoration: none; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -2px; cursor: pointer; }
         .tab.active { color: #8a1538; border-bottom-color: #8a1538; }
     </style>
 </head>
 <body>
-
 <div class="header">
     <h1>Sint Zaken Dashboard</h1>
     <div class="nav-links">
@@ -84,66 +64,42 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
         <a href="?logout=1">Uitloggen</a>
     </div>
 </div>
-
 <div class="container">
-    <?php if($success_msg): ?>
-        <div class="alert-success">✅ <?php echo $success_msg; ?></div>
-    <?php endif; ?>
-
+    <?php if($success_msg): ?><div class="alert-success">✅ <?php echo $success_msg; ?></div><?php endif; ?>
     <div class="page-tabs">
         <a href="?tab=home" class="tab <?php echo $tab === 'home' ? 'active' : ''; ?>">🏠 Homepagina</a>
+        <a href="?tab=shows" class="tab <?php echo $tab === 'shows' ? 'active' : ''; ?>">🎭 Shows Pagina</a>
         <a href="?tab=settings" class="tab <?php echo $tab === 'settings' ? 'active' : ''; ?>">⚙️ Instellingen</a>
     </div>
-
     <form method="POST">
-        
         <?php if($tab === 'home'): ?>
         <div class="card">
             <h2>Header (Bovenste grote blok)</h2>
-            <div class="form-group">
-                <label>Hoofd Titel</label>
-                <input type="text" name="content_home_hero_title" value="<?php echo get_val('home_hero_title', 'Beleef de Ultieme Sinterklaas Magie', $content); ?>">
-            </div>
-            <div class="form-group">
-                <label>Korte introductie tekst</label>
-                <textarea name="content_home_hero_subtitle"><?php echo get_val('home_hero_subtitle', 'Laat de Sint en zijn Pieten jullie bedrijf omtoveren tot een feestelijk en warm Sinterklaasfeest. Van onvergetelijke bedrijfsfeesten tot vrolijke meet & greets.', $content); ?></textarea>
-            </div>
-            <div class="form-group">
-                <label>Tekst op de blauwe knop</label>
-                <input type="text" name="content_home_hero_button" value="<?php echo get_val('home_hero_button', 'Bekijk onze shows', $content); ?>">
-            </div>
+            <div class="form-group"><label>Hoofd Titel</label><input type="text" name="content_home_hero_title" value="<?php echo get_val('home_hero_title', 'Beleef de Ultieme Sinterklaas Magie', $content); ?>"></div>
+            <div class="form-group"><label>Korte introductie tekst</label><textarea name="content_home_hero_subtitle"><?php echo get_val('home_hero_subtitle', 'Laat de Sint en zijn Pieten jullie bedrijf omtoveren tot een feestelijk en warm Sinterklaasfeest. Van onvergetelijke bedrijfsfeesten tot vrolijke meet & greets.', $content); ?></textarea></div>
+            <div class="form-group"><label>Tekst op de blauwe knop</label><input type="text" name="content_home_hero_button" value="<?php echo get_val('home_hero_button', 'Bekijk onze shows', $content); ?>"></div>
         </div>
-
         <div class="card">
             <h2>Diensten (De 3 blokjes)</h2>
-            <div class="form-group">
-                <label>Blok 1 - Titel</label>
-                <input type="text" name="content_home_service1_title" value="<?php echo get_val('home_service1_title', 'Complete Theatershows', $content); ?>">
-            </div>
-            <div class="form-group">
-                <label>Blok 1 - Tekst</label>
-                <textarea name="content_home_service1_text" rows="2"><?php echo get_val('home_service1_text', 'Van 45 tot 90 minuten lang spektakel met muziek, dans en een spannend verhaal.', $content); ?></textarea>
-            </div>
+            <div class="form-group"><label>Blok 1 - Titel</label><input type="text" name="content_home_service1_title" value="<?php echo get_val('home_service1_title', 'Complete Theatershows', $content); ?>"></div>
+            <div class="form-group"><label>Blok 1 - Tekst</label><textarea name="content_home_service1_text" rows="2"><?php echo get_val('home_service1_text', 'Van 45 tot 90 minuten lang spektakel met muziek, dans en een spannend verhaal.', $content); ?></textarea></div>
             <hr style="border: 0; border-top: 1px solid #f1f5f9; margin: 2rem 0;">
-            <div class="form-group">
-                <label>Blok 2 - Titel</label>
-                <input type="text" name="content_home_service2_title" value="<?php echo get_val('home_service2_title', 'Meet & Greets', $content); ?>">
-            </div>
-            <div class="form-group">
-                <label>Blok 2 - Tekst</label>
-                <textarea name="content_home_service2_text" rows="2"><?php echo get_val('home_service2_text', 'Interactief rondlopen in winkelcentra of bedrijven. Perfect voor een persoonlijk contactmoment.', $content); ?></textarea>
-            </div>
+            <div class="form-group"><label>Blok 2 - Titel</label><input type="text" name="content_home_service2_title" value="<?php echo get_val('home_service2_title', 'Meet & Greets', $content); ?>"></div>
+            <div class="form-group"><label>Blok 2 - Tekst</label><textarea name="content_home_service2_text" rows="2"><?php echo get_val('home_service2_text', 'Interactief rondlopen in winkelcentra of bedrijven. Perfect voor een persoonlijk contactmoment.', $content); ?></textarea></div>
             <hr style="border: 0; border-top: 1px solid #f1f5f9; margin: 2rem 0;">
-            <div class="form-group">
-                <label>Blok 3 - Titel</label>
-                <input type="text" name="content_home_service3_title" value="<?php echo get_val('home_service3_title', 'Concept op maat', $content); ?>">
-            </div>
-            <div class="form-group">
-                <label>Blok 3 - Tekst</label>
-                <textarea name="content_home_service3_text" rows="2"><?php echo get_val('home_service3_text', 'Specifieke wensen? Wij bedenken en produceren een Sinterklaasconcept dat perfect aansluit.', $content); ?></textarea>
-            </div>
+            <div class="form-group"><label>Blok 3 - Titel</label><input type="text" name="content_home_service3_title" value="<?php echo get_val('home_service3_title', 'Concept op maat', $content); ?>"></div>
+            <div class="form-group"><label>Blok 3 - Tekst</label><textarea name="content_home_service3_text" rows="2"><?php echo get_val('home_service3_text', 'Specifieke wensen? Wij bedenken en produceren een Sinterklaasconcept dat perfect aansluit.', $content); ?></textarea></div>
         </div>
-        
+
+        <?php elseif($tab === 'shows'): ?>
+        <div class="card">
+            <h2>De Hoofdshow: De Magische Koffer</h2>
+            <div class="form-group"><label>Titel</label><input type="text" name="content_shows_main_title" value="<?php echo get_val('shows_main_title', '2. De Hoofdshow: De Magische Koffer', $content); ?>"></div>
+            <div class="form-group"><label>Alinea 1</label><textarea name="content_shows_main_text1"><?php echo get_val('shows_main_text1', 'Zodra de Sinterklaaskoffer op het podium staat, begint het avontuur. De meter op de koffer moet naar de 100% voordat Sinterklaas kan verschijnen. De kinderen helpen actief mee door samen liedjes te zingen.', $content); ?></textarea></div>
+            <div class="form-group"><label>Alinea 2</label><textarea name="content_shows_main_text2"><?php echo get_val('shows_main_text2', 'Wanneer de meter vol is, maakt Sinterklaas zijn entree. Een gezellig en interactief programma dat leuk is voor alle leeftijden.', $content); ?></textarea></div>
+            <div class="form-group"><label>Rode USP Tekst</label><input type="text" name="content_shows_main_usp" value="<?php echo get_val('shows_main_usp', '✓ Te boeken voor 30, 45 of 60 minuten.', $content); ?>"></div>
+        </div>
+
         <?php elseif($tab === 'settings'): ?>
         <div class="card">
             <h2>ChatGPiet Instellingen</h2>
@@ -152,9 +108,7 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
                 <input type="password" name="content_gemini_api_key" placeholder="Plak hier je Google AI Studio API key (bijv. AIzaSy...)" value="<?php echo get_val('gemini_api_key', '', $content); ?>">
                 <small style="color: #64748b; margin-top: 0.5rem; display: block;">Deze sleutel wordt veilig opgeslagen en uitsluitend gebruikt om ChatGPiet te laten praten.</small>
             </div>
-            
             <hr style="border: 0; border-top: 1px solid #f1f5f9; margin: 2rem 0;">
-            
             <div class="form-group">
                 <label>De "Geheime Instructie" (Prompt) van ChatGPiet</label>
                 <textarea name="content_gemini_prompt" rows="6"><?php echo get_val('gemini_prompt', 'Je bent ChatG-Piet, een uiterst professionele, maar ook licht speelse en hartelijke virtuele assistent van "Sint Zaken", gepositioneerd op de openbare website voor potentiële klanten.', $content); ?></textarea>
@@ -162,10 +116,8 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
             </div>
         </div>
         <?php endif; ?>
-
         <button type="submit" class="btn-save">💾 Opslaan</button>
     </form>
 </div>
-
 </body>
 </html>
