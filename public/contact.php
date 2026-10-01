@@ -34,10 +34,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ':subject' => $subject_form,
                 ':message' => $message
             ]);
+
+            // Also create a Client/Lead record
+            $stmt2 = $db->prepare("INSERT INTO clients (name, email, phone, company, address, status) VALUES (:name, :email, :phone, :company, :address, 'nieuw')");
+            $stmt2->execute([
+                ':name' => $name,
+                ':email' => $email,
+                ':phone' => ($phone === 'Niet opgegeven' ? '' : $phone),
+                ':company' => '',
+                ':address' => ''
+            ]);
         }
     } catch (Exception $e) {
         // Silently fail database insertion so email still attempts to send
-        error_log("Failed to save contact to database: " . $e->getMessage());
+        error_log("Failed to save contact/client to database: " . $e->getMessage());
     }
 
     $recipient = "sint@sintzaken.nl";

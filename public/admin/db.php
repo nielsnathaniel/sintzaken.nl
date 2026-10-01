@@ -23,6 +23,36 @@ try {
         is_admin INTEGER DEFAULT 0
     )");
 
+    // Initialize CRM tables
+    $db->exec("CREATE TABLE IF NOT EXISTS mail_templates (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        subject TEXT NOT NULL,
+        body TEXT NOT NULL
+    )");
+
+    $db->exec("CREATE TABLE IF NOT EXISTS clients (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        email TEXT,
+        phone TEXT,
+        company TEXT,
+        address TEXT,
+        status TEXT DEFAULT 'nieuw',
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )");
+
+    $db->exec("CREATE TABLE IF NOT EXISTS appointments (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        client_id INTEGER,
+        title TEXT NOT NULL,
+        event_date DATE,
+        event_time TEXT,
+        status TEXT DEFAULT 'gepland',
+        notes TEXT,
+        FOREIGN KEY(client_id) REFERENCES clients(id)
+    )");
+
     // Insert default admin if table is empty
     $stmt = $db->query("SELECT COUNT(*) FROM users");
     if ($stmt->fetchColumn() == 0) {
