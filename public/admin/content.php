@@ -55,12 +55,15 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
 <body>
 <div class="header">
     <h1>Sint Zaken Dashboard</h1>
-    <div class="nav-links">
+    <div class="nav-links" style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:flex-end;">
         <a href="dashboard.php">Overzicht</a>
+        <a href="clients.php">Klanten</a>
+        <a href="agenda.php">Agenda</a>
+        <a href="tickets.php">Tickets</a>
         <a href="forms.php">Formulieren</a>
-        <a href="stats.php">Statistieken</a>
-        <a href="chats.php">ChatGPiet</a>
-        <a href="content.php" class="active">Content</a>
+        <a href="mail_templates.php">Mail</a>
+        <a href="chats.php">Chat</a>
+        <a href="content.php">Content</a>
         <a href="users.php">Gebruikers</a>
         <a href="logout.php">Uitloggen</a>
     </div>
