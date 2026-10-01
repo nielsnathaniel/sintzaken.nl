@@ -12,16 +12,15 @@ $success_msg = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $db->prepare("INSERT OR REPLACE INTO content (key, value) VALUES (:key, :value)");
     foreach ($_POST as $key => $value) {
-        // Alleen velden updaten die beginnen met "content_" (die we hebben verzonden)
         if (strpos($key, 'content_') === 0) {
-            $db_key = substr($key, 8); // Haal "content_" weg
+            $db_key = substr($key, 8);
             $stmt->execute([
                 ':key' => $db_key,
                 ':value' => strip_tags(trim($value))
             ]);
         }
     }
-    $success_msg = "Teksten zijn succesvol opgeslagen! De website is direct bijgewerkt.";
+    $success_msg = "Gegevens zijn succesvol opgeslagen! De website is direct bijgewerkt.";
 }
 
 // Alle content ophalen
@@ -32,10 +31,11 @@ foreach ($results as $row) {
     $content[$row['key']] = $row['value'];
 }
 
-// Helper functie om waardes in te vullen
 function get_val($key, $default, $content) {
     return isset($content[$key]) ? htmlspecialchars($content[$key]) : htmlspecialchars($default);
 }
+
+$tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -91,12 +91,13 @@ function get_val($key, $default, $content) {
     <?php endif; ?>
 
     <div class="page-tabs">
-        <a href="?page=home" class="tab active">🏠 Homepagina</a>
-        <!-- Hier kunnen we later meer tabbladen toevoegen (Shows, Over Ons, etc) -->
+        <a href="?tab=home" class="tab <?php echo $tab === 'home' ? 'active' : ''; ?>">🏠 Homepagina</a>
+        <a href="?tab=settings" class="tab <?php echo $tab === 'settings' ? 'active' : ''; ?>">⚙️ Instellingen</a>
     </div>
 
     <form method="POST">
         
+        <?php if($tab === 'home'): ?>
         <div class="card">
             <h2>Header (Bovenste grote blok)</h2>
             <div class="form-group">
@@ -142,8 +143,19 @@ function get_val($key, $default, $content) {
                 <textarea name="content_home_service3_text" rows="2"><?php echo get_val('home_service3_text', 'Specifieke wensen? Wij bedenken en produceren een Sinterklaasconcept dat perfect aansluit.', $content); ?></textarea>
             </div>
         </div>
+        
+        <?php elseif($tab === 'settings'): ?>
+        <div class="card">
+            <h2>ChatGPiet Instellingen</h2>
+            <div class="form-group">
+                <label>Gemini API Key</label>
+                <input type="password" name="content_gemini_api_key" placeholder="Plak hier je Google AI Studio API key (bijv. AIzaSy...)" value="<?php echo get_val('gemini_api_key', '', $content); ?>">
+                <small style="color: #64748b; margin-top: 0.5rem; display: block;">Deze sleutel wordt veilig opgeslagen en uitsluitend gebruikt om ChatGPiet te laten praten.</small>
+            </div>
+        </div>
+        <?php endif; ?>
 
-        <button type="submit" class="btn-save">💾 Opslaan en direct live zetten</button>
+        <button type="submit" class="btn-save">💾 Opslaan</button>
     </form>
 </div>
 
