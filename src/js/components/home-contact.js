@@ -194,6 +194,35 @@ export function setupHomeContact(element) {
   });
 
   // Form Submission
+  function throwPepernoten() {
+      const colors = ['#8B4513', '#A0522D', '#D2691E']; // Pepernoot colors
+      for(let i=0; i<40; i++) {
+          const pep = document.createElement('div');
+          pep.style.position = 'fixed';
+          pep.style.width = (Math.random() * 10 + 10) + 'px';
+          pep.style.height = pep.style.width;
+          pep.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          pep.style.borderRadius = '50%';
+          pep.style.left = Math.random() * 100 + 'vw';
+          pep.style.top = '-20px';
+          pep.style.zIndex = '99999';
+          pep.style.pointerEvents = 'none';
+          pep.style.boxShadow = 'inset -3px -3px 6px rgba(0,0,0,0.4)';
+          document.body.appendChild(pep);
+
+          const fallDuration = Math.random() * 2 + 1.5; 
+          const swayAmount = (Math.random() - 0.5) * 200;
+
+          pep.animate([
+              { transform: 'translate(0, 0) rotate(0deg)' },
+              { transform: `translate(${swayAmount}px, 105vh) rotate(${Math.random() * 720}deg)` }
+          ], {
+              duration: fallDuration * 1000,
+              easing: 'cubic-bezier(.37,0,.63,1)'
+          }).onfinish = () => pep.remove();
+      }
+  }
+
   const form = document.getElementById('contactForm');
   const statusDiv = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
@@ -223,6 +252,7 @@ export function setupHomeContact(element) {
           statusDiv.style.color = '#166534';
           statusDiv.style.border = '1px solid #bbf7d0';
           statusDiv.innerHTML = '<strong>Staat genoteerd in het Grote Boek! 🎁</strong><br>Wij kijken naar de mogelijkheden en nemen contact met je op.';
+          throwPepernoten();
           form.reset();
           setTimeout(() => goToStep(1), 5000);
         } else {
