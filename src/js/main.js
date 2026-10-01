@@ -78,3 +78,7 @@ if (knutselPietSection) setupKnutselPiet(knutselPietSection);
 
 const circusPietenSection = document.querySelector('#circus-pieten-section');
 if (circusPietenSection) setupCircusPieten(circusPietenSection);
+
+// Admin frontend edit loader
+import { initAdminEdit } from './admin-edit.js';
+initAdminEdit();

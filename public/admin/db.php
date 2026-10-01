@@ -53,6 +53,15 @@ try {
         FOREIGN KEY(client_id) REFERENCES clients(id)
     )");
 
+    $db->exec("CREATE TABLE IF NOT EXISTS tickets (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        description TEXT NOT NULL,
+        status TEXT DEFAULT 'open',
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        created_by TEXT
+    )");
+
     // Insert default admin if table is empty
     $stmt = $db->query("SELECT COUNT(*) FROM users");
     if ($stmt->fetchColumn() == 0) {

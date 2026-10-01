@@ -27,6 +27,9 @@ try {
         $content[$row['key']] = $row['value'];
     }
     
+    session_start();
+    $content['_is_admin'] = (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true);
+    
     echo json_encode($content);
 } catch (Exception $e) {
     echo json_encode([]);
