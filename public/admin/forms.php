@@ -81,8 +81,8 @@ $contacts = $stmt->fetchAll();
                             <td><strong><?php echo htmlspecialchars($contact['name']); ?></strong></td>
                             <td><a href="mailto:<?php echo htmlspecialchars($contact['email']); ?>"><?php echo htmlspecialchars($contact['email']); ?></a></td>
                             <td><?php echo htmlspecialchars($contact['phone']); ?></td>
-                            <td style="max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="<?php echo htmlspecialchars($contact['message']); ?>">
-                                <?php echo htmlspecialchars($contact['message']); ?>
+                            <td style="max-width: 400px; line-height: 1.5; white-space: pre-wrap; font-size: 0.95rem; color: #334155;">
+                                <?php echo nl2br(htmlspecialchars($contact['message'])); ?>
                             </td>
                             <td>
                                 <a href="forms.php?delete=<?php echo $contact['id']; ?>" class="btn-delete" onclick="return confirm('Weet je zeker dat je dit bericht wilt verwijderen?');">Verwijder</a>
