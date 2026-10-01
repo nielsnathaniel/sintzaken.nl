@@ -64,7 +64,7 @@ $stats_chats = $db->query("SELECT COUNT(*) FROM chats")->fetchColumn();
         <p>Ingevulde formulieren</p>
     </a>
     
-    <a href="#" class="card" onclick="alert('ChatGPiet dashboard komt later!')">
+    <a href="chats.php" class="card">
         <h2>🤖 Chat Berichten</h2>
         <div class="number"><?php echo $stats_chats; ?></div>
         <p>Via ChatGPiet</p>
