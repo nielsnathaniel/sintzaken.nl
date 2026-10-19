@@ -5,7 +5,12 @@ export function setupHomeContact(element) {
         <div style="max-width: 800px; margin: 0 auto; background-color: var(--color-surface); padding: 4rem 3rem; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-top: 5px solid var(--color-details); text-align: center;" id="configurator-container">
           
           <h2 class="text-navy" style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">Stel je Sinterklaasfeest samen 🎁</h2>
-          <p style="color: var(--color-text-light); font-size: 1.1rem; margin-bottom: 2.5rem;">Beantwoord een paar korte vragen, dan kijken wij (en ChatG-Piet) direct met je mee.</p>
+          <p style="color: var(--color-text-light); font-size: 1.1rem; margin-bottom: 1.5rem;">Beantwoord een paar korte vragen, dan kijken wij (en ChatG-Piet) direct met je mee.</p>
+          
+          <div style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(138, 21, 56, 0.06); padding: 0.6rem 1.4rem; border-radius: 30px; margin-bottom: 2.5rem; font-size: 0.95rem; color: var(--color-navy); border: 1px solid rgba(138, 21, 56, 0.12);">
+            <span>Liever direct telefonisch overleg?</span>
+            <a href="tel:0857440806" style="color: var(--color-details); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem;">📞 085 7440806</a>
+          </div>
           
           <!-- Progress Bar -->
           <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 3rem;" id="config-progress">
@@ -88,7 +93,8 @@ export function setupHomeContact(element) {
           <!-- Step 5 -->
           <div class="config-step" id="step-5" style="display: none;">
             <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--color-navy);">5. Hoe kunnen we je bereiken?</h3>
-            <p style="color: var(--color-text-light); margin-bottom: 2rem;">Je aanvraag staat klaar in het Grote Boek. Waar mogen we het voorstel naartoe sturen?</p>
+            <p style="color: var(--color-text-light); margin-bottom: 0.6rem;">Je aanvraag staat klaar in het Grote Boek. Waar mogen we het voorstel naartoe sturen?</p>
+            <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 2rem;">Liever direct bellen? Wij zijn bereikbaar via <a href="tel:0857440806" style="color: var(--color-details); font-weight: 700; text-decoration: none;">085 7440806</a>.</p>
             <form id="contactForm" style="text-align: left; max-width: 500px; margin: 0 auto;">
                 <div style="margin-bottom: 1.2rem;">
                   <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Naam *</label>

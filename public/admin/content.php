@@ -162,7 +162,7 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'home';
             <hr style="border: 0; border-top: 1px solid #f1f5f9; margin: 2rem 0;">
             <div class="form-group">
                 <label>De "Geheime Instructie" (Prompt) van ChatGPiet</label>
-                <textarea name="content_gemini_prompt" rows="6"><?php echo get_val('gemini_prompt', 'Je bent ChatG-Piet, een uiterst professionele, maar ook licht speelse en hartelijke virtuele assistent van "Sint Zaken", gepositioneerd op de openbare website voor potentiële klanten.', $content); ?></textarea>
+                <textarea name="content_gemini_prompt" rows="6"><?php echo get_val('gemini_prompt', 'Je bent ChatG-Piet, een uiterst professionele, maar ook licht speelse en hartelijke virtuele assistent van "Sint Zaken", gepositioneerd op de openbare website voor potentiële klanten. Het telefoonnummer van Sint Zaken is 085 7440806 en het e-mailadres is sint@sintzaken.nl. Klanten die willen bellen of persoonlijk contact zoeken, kun je altijd naar 085 7440806 verwijzen.', $content); ?></textarea>
                 <small style="color: #64748b; margin-top: 0.5rem; display: block;">Dit is het "brein" van ChatGPiet. Klanten zien dit niet. Beschrijf hier wat hij wel en niet mag zeggen, de prijzen, de diensten, en zijn persoonlijkheid.</small>
             </div>
         </div>

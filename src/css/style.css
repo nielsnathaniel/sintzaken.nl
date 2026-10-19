@@ -224,7 +224,7 @@ img {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.25rem;
   list-style: none;
 }
 
@@ -239,6 +239,26 @@ img {
 
 .nav-links a:not(.btn):hover {
   color: var(--color-primary);
+}
+
+.nav-phone-link {
+  font-weight: 600 !important;
+  font-size: 0.95rem;
+  color: var(--color-primary) !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.nav-phone-link:hover {
+  color: var(--color-accent) !important;
+}
+
+.mobile-phone-btn {
+  display: none;
 }
 
 /* The contact button should stand out */
@@ -499,7 +519,27 @@ img {
     font-size: 1.4rem;
   }
 
-  /* Hamburger button */
+  /* Hamburger and Mobile Actions */
+  .nav-mobile-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .mobile-phone-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(138, 21, 56, 0.08);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: 1px solid rgba(138, 21, 56, 0.15);
+  }
+
   .mobile-menu-btn {
     display: block;
     background: none;
@@ -540,6 +580,15 @@ img {
     border-bottom: none;
   }
 
+  .nav-phone {
+    display: flex;
+    justify-content: center;
+    padding: 0.8rem 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    list-style: none;
+  }
+
   .nav-links a:not(.btn) {
     display: block;
     font-size: 1rem;
@@ -567,11 +616,19 @@ img {
     display: contents;
   }
 
+  .nav-mobile-actions {
+    display: none;
+  }
+
   .mobile-menu-btn {
     display: none;
   }
 
   .nav-menu {
+    display: contents;
+  }
+
+  .nav-phone {
     display: contents;
   }
 

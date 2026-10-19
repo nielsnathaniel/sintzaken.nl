@@ -36,6 +36,10 @@ export async function setupParticulieren(element) {
             <p style="margin-bottom: 2rem; color: var(--color-text-light); border-top: 1px solid #eee; padding-top: 1.5rem; font-size: 1rem; text-align: center; line-height: 1.6;">
               <span class="cms-editable" data-page="particulieren" data-key="part_disclaimer">${disclaimer.replace(/\n/g, '<br>')}</span>
             </p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; font-size: 0.95rem; color: var(--color-navy); background: rgba(138, 21, 56, 0.05); padding: 0.6rem 1.2rem; border-radius: 30px;">
+              <span>Vragen over de beschikbaarheid? Bel gerust naar</span>
+              <a href="tel:0857440806" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">085 7440806</a>
+            </div>
 
             <form id="contact-form" action="/contact.php" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
               
