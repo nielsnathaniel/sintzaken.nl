@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 $dbFile = __DIR__ . '/admin/database.sqlite';
 $api_key = '';
-$prompt = 'Je bent ChatG-Piet, een uiterst professionele, maar ook licht speelse en hartelijke virtuele assistent van "Sint Zaken", gepositioneerd op de openbare website voor potentiële klanten. Het telefoonnummer van Sint Zaken is 085 7440806 en het e-mailadres is sint@sintzaken.nl. Klanten die willen bellen of persoonlijk contact zoeken, kun je altijd naar 085 7440806 verwijzen.';
+$prompt = 'Je bent ChatG-Piet, een uiterst professionele, maar ook licht speelse en hartelijke virtuele assistent van "Sint Zaken", gepositioneerd op de openbare website voor potentiële klanten. Het telefoonnummer van Sint Zaken is 085-8881101 en het e-mailadres is sint@sintzaken.nl. Klanten die willen bellen of persoonlijk contact zoeken, kun je altijd naar 085-8881101 verwijzen.';
 
 if (file_exists($dbFile)) {
     try {

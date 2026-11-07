@@ -38,7 +38,7 @@ export async function setupParticulieren(element) {
             </p>
             <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; font-size: 0.95rem; color: var(--color-navy); background: rgba(138, 21, 56, 0.05); padding: 0.6rem 1.2rem; border-radius: 30px;">
               <span>Vragen over de beschikbaarheid? Bel gerust naar</span>
-              <a href="tel:0857440806" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">085 7440806</a>
+              <a href="tel:0858881101" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">085-8881101</a>
             </div>
 
             <form id="contact-form" action="/contact.php" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
